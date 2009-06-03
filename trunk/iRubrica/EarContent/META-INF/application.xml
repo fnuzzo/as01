@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" id="Application_ID" version="5">
+  <display-name> 
+iRubrica</display-name>
+  <module>
+    <java>iRubricaClient.jar</java>
+  </module>
+  <module>
+    <connector>iRubricaConnector.rar</connector>
+  </module>
+  <module>
+    <web>
+      <web-uri>iRubricaWeb.war</web-uri>
+      <context-root>iRubricaWeb</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>iRubricaEJB.jar</ejb>
+  </module>
+</application>
