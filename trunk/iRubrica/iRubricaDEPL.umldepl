@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_bPC-4FD1Ed68hO2D7uHj6Q" type="UMLDeployment" name="iRubricaDEPL.umldepl" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_bPC-4VD1Ed68hO2D7uHj6Q"/>
+  <element xmi:type="uml:Package" href="iRubricaDEPL.uml#_bOj2sFD1Ed68hO2D7uHj6Q"/>
+</notation:Diagram>
