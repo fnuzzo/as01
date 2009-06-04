@@ -287,15 +287,6 @@
     <element xmi:type="uml:Association" href="iRubricaUSC.uml#__qHHkFESEd6E65F6TK5TTQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xHjLI1EUEd6E65F6TK5TTQ" points="[-15, -25, 94, 151]$[-109, -176, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_xHlnYFEUEd6E65F6TK5TTQ" type="4006" source="_xHGfMFEUEd6E65F6TK5TTQ" target="_xHGfMFEUEd6E65F6TK5TTQ">
-    <children xmi:type="notation:Node" xmi:id="_xHlnZFEUEd6E65F6TK5TTQ" visible="false" type="6005">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_xHlnZVEUEd6E65F6TK5TTQ" y="40"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_xHlnYVEUEd6E65F6TK5TTQ"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_xHlnYlEUEd6E65F6TK5TTQ" fontName="Sans"/>
-    <element xmi:type="uml:Dependency" href="iRubricaUSC.uml#_zsK5cFETEd6E65F6TK5TTQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xHlnY1EUEd6E65F6TK5TTQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_kXQBEFEXEd6E65F6TK5TTQ" type="4001" source="_YilUcFD8Ed6IKNgQnLw3zg" target="_xHGfMFEUEd6E65F6TK5TTQ">
     <children xmi:type="notation:Node" xmi:id="_kXQoIFEXEd6E65F6TK5TTQ" type="6001">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_kXQoIVEXEd6E65F6TK5TTQ" y="20"/>

@@ -70,7 +70,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sK5zVFEGEd6E65F6TK5TTQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_8p_lgFESEd6E65F6TK5TTQ" name="Registrazione" clientDependency="_zsK5cFETEd6E65F6TK5TTQ"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_8p_lgFESEd6E65F6TK5TTQ" name="Registrazione"/>
   <packagedElement xmi:type="uml:Association" xmi:id="__qHHkFESEd6E65F6TK5TTQ" memberEnd="__qHuoFESEd6E65F6TK5TTQ __qHuo1ESEd6E65F6TK5TTQ" navigableOwnedEnd="__qHuoFESEd6E65F6TK5TTQ __qHuo1ESEd6E65F6TK5TTQ">
     <ownedEnd xmi:id="__qHuoFESEd6E65F6TK5TTQ" name="src" type="_-z9aIFD7Ed6IKNgQnLw3zg" association="__qHHkFESEd6E65F6TK5TTQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__qHuolESEd6E65F6TK5TTQ" value="1"/>
@@ -81,5 +81,4 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__qHupFESEd6E65F6TK5TTQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Dependency" xmi:id="_zsK5cFETEd6E65F6TK5TTQ" supplier="_8p_lgFESEd6E65F6TK5TTQ" client="_8p_lgFESEd6E65F6TK5TTQ"/>
 </uml:Package>
