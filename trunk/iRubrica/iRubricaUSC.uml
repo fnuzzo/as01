@@ -12,4 +12,60 @@
   <elementImport xmi:id="_NwIis1D1Ed68hO2D7uHj6Q">
     <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
   </elementImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_-z9aIFD7Ed6IKNgQnLw3zg" name="Utente"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_AvyNoFD8Ed6IKNgQnLw3zg" name="Autenticazione"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_DBo7gFD8Ed6IKNgQnLw3zg" name="Ricerca contatto">
+    <include xmi:id="_Od-3cFEGEd6E65F6TK5TTQ" addition="_AvyNoFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_IXF9QFD8Ed6IKNgQnLw3zg" name="Creazione contatto">
+    <include xmi:id="_Poh_AFEGEd6E65F6TK5TTQ" addition="_AvyNoFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_LerZQFD8Ed6IKNgQnLw3zg" name="Modifica contatto">
+    <include xmi:id="_RWPeAFEGEd6E65F6TK5TTQ" addition="_AvyNoFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_M9_P4FD8Ed6IKNgQnLw3zg" name="Elimina contatto">
+    <include xmi:id="_WXE6oFEGEd6E65F6TK5TTQ" addition="_AvyNoFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_QxuAMFD8Ed6IKNgQnLw3zg" name="Visualizza lista contatti">
+    <include xmi:id="_Jl_00FEGEd6E65F6TK5TTQ" addition="_AvyNoFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_TXyqkFD8Ed6IKNgQnLw3zg" name="Visualizza contatto">
+    <include xmi:id="_eyg14FEGEd6E65F6TK5TTQ" addition="_QxuAMFD8Ed6IKNgQnLw3zg"/>
+    <include xmi:id="_gO1C4FEGEd6E65F6TK5TTQ" addition="_DBo7gFD8Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_WJR6wFD8Ed6IKNgQnLw3zg" name="Admin">
+    <generalization xmi:id="_P9rlEFEFEd6E65F6TK5TTQ" general="_-z9aIFD7Ed6IKNgQnLw3zg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_YiOvIFD8Ed6IKNgQnLw3zg" name="Abilitazione utente"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_blN_AFD8Ed6IKNgQnLw3zg" name="Eliminazione utente"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_8v9WgFEFEd6E65F6TK5TTQ" memberEnd="_8v_LsFEFEd6E65F6TK5TTQ _8wCPAFEFEd6E65F6TK5TTQ" navigableOwnedEnd="_8v_LsFEFEd6E65F6TK5TTQ _8wCPAFEFEd6E65F6TK5TTQ">
+    <ownedEnd xmi:id="_8v_LsFEFEd6E65F6TK5TTQ" name="src" type="_-z9aIFD7Ed6IKNgQnLw3zg" association="_8v9WgFEFEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8wBn8VEFEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8wBn8FEFEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_8wCPAFEFEd6E65F6TK5TTQ" name="dst" type="_AvyNoFD8Ed6IKNgQnLw3zg" association="_8v9WgFEFEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8wC2EFEFEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8wCPAVEFEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qeps4FEGEd6E65F6TK5TTQ" memberEnd="_qeqT8FEGEd6E65F6TK5TTQ _qeriEFEGEd6E65F6TK5TTQ" navigableOwnedEnd="_qeqT8FEGEd6E65F6TK5TTQ _qeriEFEGEd6E65F6TK5TTQ">
+    <ownedEnd xmi:id="_qeqT8FEGEd6E65F6TK5TTQ" name="src" type="_WJR6wFD8Ed6IKNgQnLw3zg" association="_qeps4FEGEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qeq7AVEGEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qeq7AFEGEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qeriEFEGEd6E65F6TK5TTQ" name="dst" type="_YiOvIFD8Ed6IKNgQnLw3zg" association="_qeps4FEGEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qesJIVEGEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qesJIFEGEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_sK5MQFEGEd6E65F6TK5TTQ" memberEnd="_sK5zUFEGEd6E65F6TK5TTQ _sK5zU1EGEd6E65F6TK5TTQ" navigableOwnedEnd="_sK5zUFEGEd6E65F6TK5TTQ _sK5zU1EGEd6E65F6TK5TTQ">
+    <ownedEnd xmi:id="_sK5zUFEGEd6E65F6TK5TTQ" name="src" type="_WJR6wFD8Ed6IKNgQnLw3zg" association="_sK5MQFEGEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sK5zUlEGEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sK5zUVEGEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_sK5zU1EGEd6E65F6TK5TTQ" name="dst" type="_blN_AFD8Ed6IKNgQnLw3zg" association="_sK5MQFEGEd6E65F6TK5TTQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sK5zVVEGEd6E65F6TK5TTQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sK5zVFEGEd6E65F6TK5TTQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
 </uml:Package>
