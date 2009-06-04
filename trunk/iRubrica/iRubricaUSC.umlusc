@@ -17,7 +17,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_-1C_QVD7Ed6IKNgQnLw3zg" fontName="Sans"/>
     <element xmi:type="uml:Actor" href="iRubricaUSC.uml#_-z9aIFD7Ed6IKNgQnLw3zg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-1C_QlD7Ed6IKNgQnLw3zg" x="94" y="151"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-1C_QlD7Ed6IKNgQnLw3zg" x="90" y="153"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_AwR84FD8Ed6IKNgQnLw3zg" type="2003">
     <children xmi:type="notation:Node" xmi:id="_AwVAMFD8Ed6IKNgQnLw3zg" type="5003">
@@ -53,7 +53,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_IXov0VD8Ed6IKNgQnLw3zg" fontName="Sans"/>
     <element xmi:type="uml:UseCase" href="iRubricaUSC.uml#_IXF9QFD8Ed6IKNgQnLw3zg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IXov0lD8Ed6IKNgQnLw3zg" x="525" y="180"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IXov0lD8Ed6IKNgQnLw3zg" x="522" y="171"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_LfGQAFD8Ed6IKNgQnLw3zg" type="2003">
     <children xmi:type="notation:Node" xmi:id="_LfHeIFD8Ed6IKNgQnLw3zg" type="5003">
@@ -134,6 +134,18 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_blnnoVD8Ed6IKNgQnLw3zg" fontName="Sans"/>
     <element xmi:type="uml:UseCase" href="iRubricaUSC.uml#_blN_AFD8Ed6IKNgQnLw3zg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_blnnolD8Ed6IKNgQnLw3zg" x="282" y="591"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_ufxp4FEPEd6aOYlaPzSvJw" type="2003">
+    <children xmi:type="notation:Node" xmi:id="_ufyQ8FEPEd6aOYlaPzSvJw" type="5003">
+      <styles xmi:type="notation:FontStyle" xmi:id="_uf1UQFEPEd6aOYlaPzSvJw" bold="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ufy4AFEPEd6aOYlaPzSvJw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ufy4AVEPEd6aOYlaPzSvJw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ufy4AlEPEd6aOYlaPzSvJw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ufxp4VEPEd6aOYlaPzSvJw" fontName="Lucida Grande"/>
+    <element xmi:type="uml:UseCase" href="iRubricaUSC.uml#_ufNpMFEPEd6aOYlaPzSvJw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ufxp4lEPEd6aOYlaPzSvJw" x="598" y="378"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_NwIitVD1Ed68hO2D7uHj6Q"/>
   <element xmi:type="uml:Package" href="iRubricaUSC.uml#_Nvis0FD1Ed68hO2D7uHj6Q"/>

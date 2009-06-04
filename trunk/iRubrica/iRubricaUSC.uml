@@ -68,4 +68,5 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sK5zVFEGEd6E65F6TK5TTQ" value="1"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ufNpMFEPEd6aOYlaPzSvJw" name="asd"/>
 </uml:Package>
