@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Package xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_4XsScFT6Ed6apLoEVNkNeQ">
+  <elementImport xmi:id="_4YcgYFT6Ed6apLoEVNkNeQ">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="_4YcgYVT6Ed6apLoEVNkNeQ">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+  </elementImport>
+  <elementImport xmi:id="_4YcgYlT6Ed6apLoEVNkNeQ">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+  </elementImport>
+  <elementImport xmi:id="_4YcgY1T6Ed6apLoEVNkNeQ">
+    <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_5EdR0FT6Ed6apLoEVNkNeQ" name="Inserimento di un contatto">
+    <node xmi:type="uml:InitialNode" xmi:id="_6ApNQFT6Ed6apLoEVNkNeQ" outgoing="_UEqv0FT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_6X52sFT6Ed6apLoEVNkNeQ" incoming="_vSaTgFT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_8Cl24FT6Ed6apLoEVNkNeQ" name="L'utente va nell'area di inserimento contatto" outgoing="_UxDUsFT7Ed6apLoEVNkNeQ" incoming="_UEqv0FT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_H52_0FT7Ed6apLoEVNkNeQ" name="L'utente inserisce i dati del contatto e convalida l'inserimento" outgoing="_VlNVgFT7Ed6apLoEVNkNeQ" incoming="_UxDUsFT7Ed6apLoEVNkNeQ _cEOnYFT7Ed6apLoEVNkNeQ _qfEgUFT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_Kp4QYFT7Ed6apLoEVNkNeQ" name="Il sistema aggiunge il contatto nel database" outgoing="_nAij8FT7Ed6apLoEVNkNeQ" incoming="_XVUoQFT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_MlMGgFT7Ed6apLoEVNkNeQ" name="Il sistema notifica all'utente l'avvenuto inserimento del contatto " outgoing="_vSaTgFT7Ed6apLoEVNkNeQ" incoming="_odgRMFT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_SDSt8FT7Ed6apLoEVNkNeQ" name="MergeNode" outgoing="_XVUoQFT7Ed6apLoEVNkNeQ _cEOnYFT7Ed6apLoEVNkNeQ" incoming="_VlNVgFT7Ed6apLoEVNkNeQ"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_l0kgEFT7Ed6apLoEVNkNeQ" name="MergeNode" outgoing="_odgRMFT7Ed6apLoEVNkNeQ _qfEgUFT7Ed6apLoEVNkNeQ" incoming="_nAij8FT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_UEqv0FT7Ed6apLoEVNkNeQ" source="_6ApNQFT6Ed6apLoEVNkNeQ" target="_8Cl24FT6Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_UxDUsFT7Ed6apLoEVNkNeQ" source="_8Cl24FT6Ed6apLoEVNkNeQ" target="_H52_0FT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_VlNVgFT7Ed6apLoEVNkNeQ" name="Invio dati" source="_H52_0FT7Ed6apLoEVNkNeQ" target="_SDSt8FT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_XVUoQFT7Ed6apLoEVNkNeQ" name="Dati corretti" source="_SDSt8FT7Ed6apLoEVNkNeQ" target="_Kp4QYFT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_cEOnYFT7Ed6apLoEVNkNeQ" name="Dati non corretti" source="_SDSt8FT7Ed6apLoEVNkNeQ" target="_H52_0FT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_nAij8FT7Ed6apLoEVNkNeQ" source="_Kp4QYFT7Ed6apLoEVNkNeQ" target="_l0kgEFT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_odgRMFT7Ed6apLoEVNkNeQ" name="[success]" source="_l0kgEFT7Ed6apLoEVNkNeQ" target="_MlMGgFT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qfEgUFT7Ed6apLoEVNkNeQ" name="Errore inserimento" source="_l0kgEFT7Ed6apLoEVNkNeQ" target="_H52_0FT7Ed6apLoEVNkNeQ"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_vSaTgFT7Ed6apLoEVNkNeQ" source="_MlMGgFT7Ed6apLoEVNkNeQ" target="_6X52sFT6Ed6apLoEVNkNeQ"/>
+  </packagedElement>
+</uml:Package>
