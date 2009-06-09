@@ -13,6 +13,17 @@
     <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
   </elementImport>
   <packagedElement xmi:type="uml:Activity" xmi:id="_7r_4cFTREd6SkYkdW6_p4A" name="Activity">
-    <node xmi:type="uml:InitialNode" xmi:id="_-Ev4gFTREd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:InitialNode" xmi:id="_-Ev4gFTREd6SkYkdW6_p4A" outgoing="_5vuHEFTTEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_juoOcFTTEd6SkYkdW6_p4A" name="L'admin rileva la richiesta di restrazione di un utente" outgoing="_9IZ6IFTTEd6SkYkdW6_p4A" incoming="_5vuHEFTTEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_tfwKQFTTEd6SkYkdW6_p4A" name="L'admin abilita l'utente" outgoing="_DFSIQFTUEd6SkYkdW6_p4A" incoming="_9IZ6IFTTEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_xgusYFTTEd6SkYkdW6_p4A" name="Invio mail di conferma autenticazione" outgoing="_TkMxwFTUEd6SkYkdW6_p4A" incoming="_QoLskFTUEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_1bcOcFTTEd6SkYkdW6_p4A" name="MergeNode" outgoing="_LNXCoFTUEd6SkYkdW6_p4A _QoLskFTUEd6SkYkdW6_p4A" incoming="_DFSIQFTUEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_3dJAcFTTEd6SkYkdW6_p4A" incoming="_LNXCoFTUEd6SkYkdW6_p4A _TkMxwFTUEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_5vuHEFTTEd6SkYkdW6_p4A" source="_-Ev4gFTREd6SkYkdW6_p4A" target="_juoOcFTTEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_9IZ6IFTTEd6SkYkdW6_p4A" source="_juoOcFTTEd6SkYkdW6_p4A" target="_tfwKQFTTEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_DFSIQFTUEd6SkYkdW6_p4A" source="_tfwKQFTTEd6SkYkdW6_p4A" target="_1bcOcFTTEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_LNXCoFTUEd6SkYkdW6_p4A" name="[utente non abilitato]" source="_1bcOcFTTEd6SkYkdW6_p4A" target="_3dJAcFTTEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_QoLskFTUEd6SkYkdW6_p4A" name="[utente abilitato]" source="_1bcOcFTTEd6SkYkdW6_p4A" target="_xgusYFTTEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_TkMxwFTUEd6SkYkdW6_p4A" source="_xgusYFTTEd6SkYkdW6_p4A" target="_3dJAcFTTEd6SkYkdW6_p4A"/>
   </packagedElement>
 </uml:Package>
