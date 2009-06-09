@@ -77,7 +77,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S21IsVTEEd6SkYkdW6_p4A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S21IsFTEEd6SkYkdW6_p4A" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="_S21vwFTEEd6SkYkdW6_p4A" name="dst" type="_LgEWgFTEEd6SkYkdW6_p4A" association="_S2yFYFTEEd6SkYkdW6_p4A">
+    <ownedEnd xmi:id="_S21vwFTEEd6SkYkdW6_p4A" name="dst" type="_-z9aIFD7Ed6IKNgQnLw3zg" association="_S2yFYFTEEd6SkYkdW6_p4A">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S21vwlTEEd6SkYkdW6_p4A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S21vwVTEEd6SkYkdW6_p4A" value="1"/>
     </ownedEnd>
