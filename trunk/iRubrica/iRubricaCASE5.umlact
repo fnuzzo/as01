@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_wCEn81TREd6SkYkdW6_p4A" type="UMLActivity" name="iRubricaCASE5.umlact" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_RSjxMFTSEd6SkYkdW6_p4A" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_RSjxMVTSEd6SkYkdW6_p4A" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_RSjxMlTSEd6SkYkdW6_p4A" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_RSjxM1TSEd6SkYkdW6_p4A" fontName="Sans" description="TITOLO CASO D'USO 5: Modifica dati utente" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
+    <styles xmi:type="notation:TextStyle" xmi:id="_RSjxNFTSEd6SkYkdW6_p4A"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_RSjxNVTSEd6SkYkdW6_p4A"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RSjxNlTSEd6SkYkdW6_p4A" x="461" y="55" width="188"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_VUvNMFTSEd6SkYkdW6_p4A" type="2026">
+    <children xmi:type="notation:Node" xmi:id="_VUv0QFTSEd6SkYkdW6_p4A" type="5030"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_VUvNMVTSEd6SkYkdW6_p4A" fontName="Sans"/>
+    <element xmi:type="uml:Activity" href="iRubricaCASE5.uml#_VUkOEFTSEd6SkYkdW6_p4A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VUvNMlTSEd6SkYkdW6_p4A" x="45" y="126"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_wCEn9FTREd6SkYkdW6_p4A"/>
+  <element xmi:type="uml:Package" href="iRubricaCASE5.uml#_wBGXkFTREd6SkYkdW6_p4A"/>
+</notation:Diagram>

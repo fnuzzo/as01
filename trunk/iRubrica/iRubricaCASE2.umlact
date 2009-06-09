@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_lz7Y8FTREd6SkYkdW6_p4A" type="UMLActivity" name="iRubricaCASE2.umlact" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_y1ubUFTREd6SkYkdW6_p4A" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_y1ubUVTREd6SkYkdW6_p4A" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_y1ubUlTREd6SkYkdW6_p4A" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_y1ubU1TREd6SkYkdW6_p4A" fontName="Sans" description="TITOLO CASO D'USO 2: Abilitazione di un utente" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
+    <styles xmi:type="notation:TextStyle" xmi:id="_y1ubVFTREd6SkYkdW6_p4A"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_y1ubVVTREd6SkYkdW6_p4A"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y1ubVlTREd6SkYkdW6_p4A" x="451" y="45" width="216"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_7sGmIFTREd6SkYkdW6_p4A" type="2026">
+    <children xmi:type="notation:Node" xmi:id="_7sHNMFTREd6SkYkdW6_p4A" type="5030"/>
+    <children xmi:type="notation:Node" xmi:id="_-ExGoFTREd6SkYkdW6_p4A" type="3035">
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_-ExGoVTREd6SkYkdW6_p4A" fontName="Sans"/>
+      <element xmi:type="uml:InitialNode" href="iRubricaCASE2.uml#_-Ev4gFTREd6SkYkdW6_p4A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-ExGolTREd6SkYkdW6_p4A" x="284" y="65"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_7sGmIVTREd6SkYkdW6_p4A" fontName="Sans"/>
+    <element xmi:type="uml:Activity" href="iRubricaCASE2.uml#_7r_4cFTREd6SkYkdW6_p4A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7sGmIlTREd6SkYkdW6_p4A" x="75" y="117"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_lz7Y8VTREd6SkYkdW6_p4A"/>
+  <element xmi:type="uml:Package" href="iRubricaCASE2.uml#_lzNnQFTREd6SkYkdW6_p4A"/>
+</notation:Diagram>

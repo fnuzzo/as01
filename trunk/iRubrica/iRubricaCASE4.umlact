@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_tnZVRFTREd6SkYkdW6_p4A" type="UMLActivity" name="iRubricaCASE4.umlact" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_MLLAoFTSEd6SkYkdW6_p4A" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_MLLAoVTSEd6SkYkdW6_p4A" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_MLLAolTSEd6SkYkdW6_p4A" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_MLLAo1TSEd6SkYkdW6_p4A" fontName="Sans" description="TITOLO CASO D'USO 4: Autenticazione utente" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
+    <styles xmi:type="notation:TextStyle" xmi:id="_MLLApFTSEd6SkYkdW6_p4A"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_MLLApVTSEd6SkYkdW6_p4A"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MLLAplTSEd6SkYkdW6_p4A" x="461" y="55" width="216"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_P_-H8FTSEd6SkYkdW6_p4A" type="2026">
+    <children xmi:type="notation:Node" xmi:id="_P_-vAFTSEd6SkYkdW6_p4A" type="5030"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_P_-H8VTSEd6SkYkdW6_p4A" fontName="Sans"/>
+    <element xmi:type="uml:Activity" href="iRubricaCASE4.uml#_P_vecFTSEd6SkYkdW6_p4A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P_-H8lTSEd6SkYkdW6_p4A" x="66" y="120"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_tnZVRVTREd6SkYkdW6_p4A"/>
+  <element xmi:type="uml:Package" href="iRubricaCASE4.uml#_tmnSIFTREd6SkYkdW6_p4A"/>
+</notation:Diagram>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_q948ZFTREd6SkYkdW6_p4A" type="UMLActivity" name="iRubricaCASE3.umlact" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_HE0K0FTSEd6SkYkdW6_p4A" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_HE0K0VTSEd6SkYkdW6_p4A" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_HE0K0lTSEd6SkYkdW6_p4A" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_HE0K01TSEd6SkYkdW6_p4A" fontName="Sans" description="TITOLO CASO D'USO 3: Eliminazione di un utente" fillColor="13369343" lineColor="6737151" lineWidth="1"/>
+    <styles xmi:type="notation:TextStyle" xmi:id="_HE0K1FTSEd6SkYkdW6_p4A"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_HE0K1VTSEd6SkYkdW6_p4A"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HE0K1lTSEd6SkYkdW6_p4A" x="461" y="55" width="216"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_K5ad0FTSEd6SkYkdW6_p4A" type="2026">
+    <children xmi:type="notation:Node" xmi:id="_K5bE4FTSEd6SkYkdW6_p4A" type="5030"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_K5ad0VTSEd6SkYkdW6_p4A" fontName="Sans"/>
+    <element xmi:type="uml:Activity" href="iRubricaCASE3.uml#_K5IJ8FTSEd6SkYkdW6_p4A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K5ad0lTSEd6SkYkdW6_p4A" x="69" y="120"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_q948ZVTREd6SkYkdW6_p4A"/>
+  <element xmi:type="uml:Package" href="iRubricaCASE3.uml#_q9O1EFTREd6SkYkdW6_p4A"/>
+</notation:Diagram>

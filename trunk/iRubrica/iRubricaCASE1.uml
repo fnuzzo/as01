@@ -12,4 +12,23 @@
   <elementImport xmi:id="_uhHsglD1Ed68hO2D7uHj6Q">
     <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
   </elementImport>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_UlNVEFTPEd6SkYkdW6_p4A" name="Activity">
+    <node xmi:type="uml:InitialNode" xmi:id="_WQt0oFTPEd6SkYkdW6_p4A" outgoing="_PDSIIFTQEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_Wo-joFTPEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_ZTaJkFTPEd6SkYkdW6_p4A" name="L'utente inserisce i dati di registrazione" outgoing="_XcKeoFTQEd6SkYkdW6_p4A" incoming="_PDSIIFTQEd6SkYkdW6_p4A _JBB1UFTREd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_mfz5cFTPEd6SkYkdW6_p4A" name="Il sistema controlla che non ci siano omonimie" outgoing="_0SDr4FTQEd6SkYkdW6_p4A" incoming="_vMkYwFTQEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:CreateObjectAction" xmi:id="_1rFJwFTPEd6SkYkdW6_p4A" name="CreateObjectAction"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_DwVNMFTQEd6SkYkdW6_p4A" name="Il sistema invia la richiesta di registrazione" outgoing="_bCgdwFTREd6SkYkdW6_p4A" incoming="_CWP_YFTREd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_HWW4sFTQEd6SkYkdW6_p4A" incoming="_gL9gUFTQEd6SkYkdW6_p4A _bCgdwFTREd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_VnHBgFTQEd6SkYkdW6_p4A" name="MergeNode" outgoing="_gL9gUFTQEd6SkYkdW6_p4A _vMkYwFTQEd6SkYkdW6_p4A" incoming="_XcKeoFTQEd6SkYkdW6_p4A"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_y2BywFTQEd6SkYkdW6_p4A" name="MergeNode" outgoing="_CWP_YFTREd6SkYkdW6_p4A _JBB1UFTREd6SkYkdW6_p4A" incoming="_0SDr4FTQEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_PDSIIFTQEd6SkYkdW6_p4A" source="_WQt0oFTPEd6SkYkdW6_p4A" target="_ZTaJkFTPEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_XcKeoFTQEd6SkYkdW6_p4A" source="_ZTaJkFTPEd6SkYkdW6_p4A" target="_VnHBgFTQEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gL9gUFTQEd6SkYkdW6_p4A" name="[utente annulla]" source="_VnHBgFTQEd6SkYkdW6_p4A" target="_HWW4sFTQEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_vMkYwFTQEd6SkYkdW6_p4A" name="[utente conferma]" source="_VnHBgFTQEd6SkYkdW6_p4A" target="_mfz5cFTPEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_0SDr4FTQEd6SkYkdW6_p4A" source="_mfz5cFTPEd6SkYkdW6_p4A" target="_y2BywFTQEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_CWP_YFTREd6SkYkdW6_p4A" name="[utente non presente]" source="_y2BywFTQEd6SkYkdW6_p4A" target="_DwVNMFTQEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_JBB1UFTREd6SkYkdW6_p4A" name="[utente presente]" source="_y2BywFTQEd6SkYkdW6_p4A" target="_ZTaJkFTPEd6SkYkdW6_p4A"/>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_bCgdwFTREd6SkYkdW6_p4A" source="_DwVNMFTQEd6SkYkdW6_p4A" target="_HWW4sFTQEd6SkYkdW6_p4A"/>
+  </packagedElement>
 </uml:Package>
