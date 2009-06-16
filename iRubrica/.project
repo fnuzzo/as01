@@ -5,6 +5,7 @@
 	<projects>
 		<project>iRubricaWeb</project>
 		<project>iRubricaEJB</project>
+		<project>iRubrica</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
