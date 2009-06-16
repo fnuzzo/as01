@@ -53,6 +53,10 @@ public class Contact implements Serializable {
 	@Column(name = "fax", nullable = true)
 	private String fax;
 	
+	@Column(name = "email", nullable = true)
+	private String email;
+	
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "insertDate", nullable = false)
 	private Date insertDate;
@@ -201,6 +205,13 @@ public class Contact implements Serializable {
 
 	public void setWeb(String web) {
 		this.web = web;
+	}
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
