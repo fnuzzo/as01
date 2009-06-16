@@ -3,6 +3,7 @@ import iR.entity.Contact;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -22,6 +23,11 @@ public interface ContactManagerLocal {
 
 		Contact searchUserForName(String name);
 
-			Contact findById(int id);
+			
+			
+			Contact contactFindById(int value);
+			
+			List contactFindByName(String value);
+			
 
 }

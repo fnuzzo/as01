@@ -1,6 +1,8 @@
 package iR.entityManager;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import iR.entity.*;
 import javax.ejb.Remote;
 
@@ -23,10 +25,12 @@ public interface ContactManagerRemote {
 	
 	Contact searchUserForName(String name);
 	
-	Contact findById(int id);
+
 	
 	
+	Contact contactFindById(int value);
 	
+	List contactFindByName(String value);
 	
 	
 	

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <persistence-unit name="iRubricaEJB" transaction-type="JTA">
+  <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>java:/DefaultDS</jta-data-source>
-    <class>iR.entity.User</class>
-    <class>iR.entity.Contact</class>
-  
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-    </properties>
+	    <class>iR.entity.User</class>
+   		 <class>iR.entity.Contact</class>
+		    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    	<properties>
+    	<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>	
+	      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>  
+			<property name="hibernate.archive.autodetection" value="class"/>    
+			<property name="hibernate.show_sql" value="true"/>
+   		 </properties>
   </persistence-unit>
 </persistence>
