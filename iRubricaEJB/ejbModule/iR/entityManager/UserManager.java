@@ -1,22 +1,32 @@
 package iR.entityManager;
 
+import java.util.List;
+
 import iR.entity.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  * Session Bean implementation class UserManager
  */
 @Stateless
-public class UserManager implements UserManagerRemote, UserManagerLocal {
+public class UserManager implements UserManagerLocal {
 
 	@PersistenceContext (unitName = "iRubricaEJB")
  	private EntityManager em;
 	
     public UserManager() {}
 
+    
+    List <User> l;
+    
+    
+    
+    
+    
 	public void addUser(String name, String mail, String passwd, String type) {
 		User us = new User();
 		
@@ -39,26 +49,36 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	}
 
 	public boolean exist(String username) {
-		User us = em.find(User.class, username);
 		
-		
-		
-		
-		return false;
+		if(em.find(User.class, username)!=null)
+			return true;
+		else 
+			return false;
 	}
 
-	public void removeUser(int id) {
-		// TODO Auto-generated method stub
-		
+	public void removeUser(String  user) {
+		User us = em.find(User.class, user);
+		em.remove(us);
 	}
 
+	
+	
+	
+	
+	
 	public void updateUser(String username, String mail, String passwd,
 			String type) {
 		// TODO Auto-generated method stub
 		
 	}
 
-    
+
+
+	public List <User>  allUser(){
+		Query qe = em.createNamedQuery("User.findAll");
+		l = qe.getResultList();
+		return l;
+		}
     
     
     
