@@ -1,4 +1,0 @@
-#Mon Jun 15 17:23:18 CEST 2009
-classpath.helper/org.eclipse.jdt.launching.JRE_CONTAINER\:\:org.eclipse.jdt.internal.launching.macosx.MacOSXType\:\:JVM\ 1.5.0\ (MacOS\ X\ Default)/owners=jst.java\:5.0
-classpath.helper/org.eclipse.jst.server.core.container\:\:org.eclipse.jst.server.generic.runtimeTarget\:\:JBoss\ v5.0\ 2/owners=jst.ejb\:3.0
-eclipse.preferences.version=1
