@@ -1,7 +1,7 @@
 package iR.Servlet;
 
 import iR.entityManager.UserManagerLocal;
-import iR.stateful.UserLoggedLocal;
+
 
 import java.io.IOException;
 //import java.io.PrintWriter;
