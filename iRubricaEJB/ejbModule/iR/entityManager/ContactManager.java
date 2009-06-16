@@ -20,7 +20,7 @@ import javax.persistence.Query;
  */
 
 @Stateless
-public class ContactManager implements ContactManagerRemote, ContactManagerLocal {
+public class ContactManager implements ContactManagerLocal {
 	
 	
 	
@@ -33,7 +33,7 @@ public class ContactManager implements ContactManagerRemote, ContactManagerLocal
 
 	public void addContact(String name, String surname, String tel_home,
 			String tel_office, String mobile_tel, String address_home,
-			String address_office, String fax, Date insertDate, String note,
+			String address_office,String fax, String mail, Date insertDate, String note,
 			int idCreatore, String other, String web, String city,
 			String state) {
 		
@@ -46,6 +46,7 @@ public class ContactManager implements ContactManagerRemote, ContactManagerLocal
 		ct.setAddress_home(address_home);
 		ct.setAddress_office(address_office);
 		ct.setFax(fax);
+		ct.setEmail(mail);
 		ct.setInsertDate(insertDate);
 		ct.setNote(note);
 		ct.setIdCreatore(idCreatore);
