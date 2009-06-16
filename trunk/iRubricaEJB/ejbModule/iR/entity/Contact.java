@@ -58,7 +58,7 @@ public class Contact implements Serializable {
 	
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "insertDate", nullable = false)
+	@Column(name = "insertDate", nullable = true)
 	private Date insertDate;
 	
 	@Column(name = "note", nullable = true, length = 100)
