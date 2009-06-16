@@ -69,4 +69,14 @@
     <servlet-name>ViewContact</servlet-name>
     <url-pattern>/ViewContact</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ricerca</display-name>
+    <servlet-name>Ricerca</servlet-name>
+    <servlet-class>iR.Servlet.Ricerca</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ricerca</servlet-name>
+    <url-pattern>/Ricerca</url-pattern>
+  </servlet-mapping>
 </web-app>

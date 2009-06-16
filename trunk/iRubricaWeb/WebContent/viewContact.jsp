@@ -22,7 +22,7 @@
 				<td><textarea name="adress" rows="5" cols="25"><c:out value='${adress}'/></textarea></td>
 				<td><label for="note">Note:</label></td>
 				<td><textarea name="note" rows="5" cols="25"><c:out value='${note}'/></textarea></td></tr>
-			<tr><td><td colspan="3"><input type="submit" value="Salva modifiche"/></td></tr>
+			<tr><td><td colspan="3"><input type="submit" name="salva" value="Salva modifiche"/></td></tr>
 		</table>
 		</form>
 		</center>		
@@ -31,6 +31,7 @@
 		<h2>Contatto eliminato con successo!</h2>
 		Implementare la fulzione di cancellazione contatto
 	</c:when>
+	
 	<c:otherwise>
 		<h2>Scheda contatto</h2>
 		<center>
