@@ -23,5 +23,9 @@ public interface UserManagerLocal {
 	
 	public List<User> allUser();
 	
+	boolean auth (String username, String password);
+	
+	User findByUsername(String username);
+	
 	
 }
