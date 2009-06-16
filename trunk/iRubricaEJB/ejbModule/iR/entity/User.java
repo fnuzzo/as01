@@ -9,24 +9,46 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="USER")
+@Table(name="User")
+
+@NamedQueries({
+				@NamedQuery(name = "User.findById", query = "SELECT a FROM User a WHERE a.id = :id"),
+				@NamedQuery(name = "User.findByUsername", query = "SELECT a FROM User a WHERE a.username = :username"),
+				@NamedQuery(name = "User.findAll", query = "SELECT a FROM User a"),
+				})
+
+
+
 
 public class User implements Serializable {
 
 	
+	
+	@Column(name = "id", nullable = true)
+	@GeneratedValue (strategy = GenerationType.AUTO )
 	private int id;
+	
+	@Id
+	@Column(name = "username", nullable = false, length = 30)
 	private String username;
+	
+	@Column(name = "mail", nullable = false, length = 30)
 	private String mail;
+	
+	@Column(name = "passwd", nullable = false, length = 30)
 	private String passwd;
+	
+	@Column(name = "type", nullable = false, length = 30)
 	private String type;
+	
 	private static final long serialVersionUID = 1L;
 
 	public User() {}
 	
 
 	
-	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO )
+	
+	
 	public int getId() { 
 		return this.id;
 	}
