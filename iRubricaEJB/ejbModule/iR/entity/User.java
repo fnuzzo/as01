@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Table(name="User")
 
 @NamedQueries({
-				@NamedQuery(name = "User.findById", query = "SELECT a FROM User a WHERE a.id = :id"),
 				@NamedQuery(name = "User.findByUsername", query = "SELECT a FROM User a WHERE a.username = :username"),
 				@NamedQuery(name = "User.findAll", query = "SELECT a FROM User a"),
 				})

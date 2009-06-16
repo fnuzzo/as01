@@ -18,9 +18,14 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
     public UserManager() {}
 
 	public void addUser(String name, String mail, String passwd, String type) {
+		User us = new User();
 		
-		
-		
+		us.setUserName(name);
+		us.setMail(mail);
+		us.setPasswd(passwd);
+		us.setType(type);
+		em.persist(us);
+	
 	}
 
 	public void changeStatus(String username, String status) {
@@ -34,7 +39,11 @@ public class UserManager implements UserManagerRemote, UserManagerLocal {
 	}
 
 	public boolean exist(String username) {
-		// TODO Auto-generated method stub
+		User us = em.find(User.class, username);
+		
+		
+		
+		
 		return false;
 	}
 
