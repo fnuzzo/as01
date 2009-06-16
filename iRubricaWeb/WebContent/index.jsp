@@ -1,9 +1,10 @@
+<%@ include file="initjsp.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <title>Esempio di Servlet</title>
+        <title></title>
     </head>
     <body>
-        <a href="Prova">Clicca qui!</a>
+        <c:redirect url="/enter.jsp" />
     </body>
 </html>  
