@@ -1,4 +1,5 @@
 <%@ include file="initjsp.jsp" %>
+
 <c:if test="${logged_user == 'no' || logged_user == null}"><c:redirect url="enter.jsp"/></c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,7 +49,8 @@
 		<div id="left">
 			<center><h2>Lista contatti</h2></center>
 			<!-- Esempio. Da importare la lista dal database -->
-			<a href="ViewContact">Pluto pluto</a>
+			<!-- <a href="ViewContact">Pluto pluto</a> -->
+			<a href="ViewContact"><c:out value='${lista}'/></a>
 		</div>
 		<div id="right">
 	
@@ -58,6 +60,10 @@
 				<h2>Aggiungi un nuovo contatto</h2>
 				<%@ include file="addContact.jsp" %>
 		
+		</c:when>
+		<c:when test="${link_clicked == 'addOK'}">
+				<!-- Includo la pagina per aggingere un contatto -->
+				<h2>Dati contatto salvati con successo!</h2>		
 		</c:when>
 		<c:when test="${link_clicked == 'account'}">
 			<!-- Includo la pagina per aggingere un contatto -->
