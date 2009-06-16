@@ -1,10 +1,13 @@
 package iR.Servlet;
 
+import iR.entity.User;
 import iR.entityManager.UserManager;
 import iR.entityManager.UserManagerLocal;
 
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -56,7 +59,7 @@ public class Registrazione extends HttpServlet {
 */
 		
 		Context context;
-		UserManagerLocal manager = null;
+		UserManagerLocal manager= null;;
 		String email= request.getParameter("mail");
 		String username= request.getParameter("username");
 		try {
@@ -88,13 +91,16 @@ public class Registrazione extends HttpServlet {
      			request.setAttribute("username",username);
      			request.setAttribute("email",email);
      			request.setAttribute("errorMex","Le due password non coincidono!");		  
+     		}else if(manager.exist(username)){
+     			request.setAttribute("errorMex","UserName Giˆ in uso!");
      		}else {
+     			
 			//qui entro nel caso in cui tutto va bene e sono pronto per inserire 
      		//l'user nel database
-     		 manager.addUser(username,email, password, "inattesa");
-     			
+     			manager.addUser(username,email, password, "inattesa");
+     			List<User> l= manager.allUser();
      			request.setAttribute("errorMex","user: "+username+" email: "+email+" password: "+password+" conferma pass: "+confirmPassword);
-     		
+     			request.setAttribute("errorMex","in database "+l.size());
      		}
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 		}
