@@ -79,6 +79,28 @@ public class UserManager implements UserManagerLocal {
 		l = qe.getResultList();
 		return l;
 		}
+
+	public void removeUser(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean auth(String username, String password) {
+		// TODO Auto-generated method stub
+		if(exist(username))
+		{
+			User toAuthenticate = this.findByUsername(username);
+			if(password.equals(toAuthenticate.getPasswd())) return true;
+			else return false;
+		}
+		else return false;
+	}
+
+	public User findByUsername(String username) {
+		// TODO Auto-generated method stub
+		User us = em.find(User.class, username);
+		return us;
+	}
     
     
     
