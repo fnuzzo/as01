@@ -1,11 +1,18 @@
 package iR.Servlet;
 
+import iR.entityManager.UserManagerLocal;
+import iR.stateful.UserLoggedLocal;
+
 import java.io.IOException;
 //import java.io.PrintWriter;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 /**
@@ -47,30 +54,48 @@ public class Login extends HttpServlet {
 		/*response.setContentType("text/html");
 	    PrintWriter out = response.getWriter();*/
 		//out.println("errore");
+		
+		Context context = null;
+		UserManagerLocal manager = null;
+		try {
+			context = new InitialContext();
+			
+			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
+			
+			
+			
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		request.getSession().setAttribute("link_clicked", "no");
 		
-	    String account = request.getParameter("username_login");
-	    String password = request.getParameter("pass_login");
+	    String username = request.getParameter("username_login");
+	    String passwd = request.getParameter("pass_login");
     
 	    request.getSession().setAttribute("logged_user", "no");
-	    if (account==null ||  password==null ){
+	    if (username==null ||  passwd==null ){
 			request.setAttribute("mgerrore","Errore ricezione dati!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else if (account.compareTo("")==0 || password.compareTo("")==0) {
+		}else if (username.compareTo("")==0 || passwd.compareTo("")==0) {
 			request.setAttribute("mgerrore","Username o password mancanti!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else if ((account.equals("amy"))&& (password.equals("amy")) ) {
-			request.getSession().setAttribute("logged_user", "si");
-			request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + account);
-			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
-			//response.sendRedirect("contact.jsp");
-		}else{
-			request.setAttribute("mgerrore", "Username o password errate!");
-			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
+		}else 
+			
+			if (manager.auth(username, passwd)) {
+				 
+				request.getSession().setAttribute("logged_user", "si");
+				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
+				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
+				//response.sendRedirect("contact.jsp");
+			}else{
+				request.setAttribute("mgerrore", "Username o password errate!");
+				getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 			
 		}
-	    
-	}   
-}
+			
+	}
+	}
