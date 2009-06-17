@@ -6,6 +6,7 @@ import iR.entity.*;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -30,12 +31,12 @@ public class UserManager implements UserManagerLocal {
 	public void addUser(String name, String mail, String passwd, String type) {
 		User us = new User();
 		
+
 		us.setUserName(name);
 		us.setMail(mail);
 		us.setPasswd(passwd);
 		us.setType(type);
 		em.persist(us);
-	
 	}
 
 	public void changeStatus(String username, String status) {
@@ -49,8 +50,7 @@ public class UserManager implements UserManagerLocal {
 	}
 
 	public boolean exist(String username) {
-		
-		if(em.find(User.class, username)!=null)
+		if(findByUsername(username)!=null)
 			return true;
 		else 
 			return false;
@@ -97,8 +97,20 @@ public class UserManager implements UserManagerLocal {
 	}
 
 	public User findByUsername(String username) {
-		// TODO Auto-generated method stub
-		User us = em.find(User.class, username);
+		User us;
+		Query qe = em.createNamedQuery("User.findByUsername");
+		qe.setParameter("username", username );
+		try{
+			
+		 us = (User) qe.getSingleResult();
+		
+		}catch(NoResultException nre){
+			
+			us = null;
+			
+		}
+		
+		
 		return us;
 	}
     
