@@ -2,6 +2,7 @@ package iR.Servlet;
 
 
 import iR.entity.Contact;
+import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
 
 import iR.entityManager.UserManagerLocal;
@@ -89,8 +90,9 @@ public class Login extends HttpServlet {
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
 		}else if (manager.auth(username, passwd)) {
-				 
+				User user = manager.findByUsername(username);
 				request.getSession().setAttribute("logged_user", "si");
+				request.getSession().setAttribute("mail", user.getMail());
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
 				//devo passare la lista dei contatti una volta logato
 	
