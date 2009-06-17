@@ -1,6 +1,6 @@
 * = campi obbligatori<br/><br/>
 <center>
-<form id="add_contact" name="add_contact" action="Contact" method="post">
+<form id="add_contact" name="add_contact" action="Contacts" method="post">
 <table width="600px">
 	<tr>
 		<td><label for="name">Nome*:</label></td>

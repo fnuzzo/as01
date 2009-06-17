@@ -4,12 +4,12 @@ package iR.Servlet;
 import iR.entity.Contact;
 import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
-
 import iR.entityManager.UserManagerLocal;
+import iR.stateful.LoginStateLocal;
 
 
 import java.io.IOException;
-import java.util.Collection;
+import java.util.List;
 //import java.io.PrintWriter;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 
 
@@ -65,11 +66,8 @@ public class Login extends HttpServlet {
 		UserManagerLocal manager = null;
 		try {
 			context = new InitialContext();
-			
 			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
-			
-			
-			
+
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,24 +88,48 @@ public class Login extends HttpServlet {
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
 		}else if (manager.auth(username, passwd)) {
+			
+/*				LoginStateLocal lsl = (LoginStateLocal)request.getSession().getAttribute("logged_user");
+			//	System.out.println(lsl);
+				  if (lsl==null){
+					   try{
+						   lsl = (LoginStateLocal)context.lookup("iRubrica/LoginState/local");
+					       request.getSession().setAttribute("logged_user",lsl);
+					   } catch (NamingException e)    {
+					       e.printStackTrace();
+					       throw new RuntimeException(e);
+					   }
+				  }
+				  lsl.login(username);*/
+
+				
+				request.getSession().setAttribute("logged_user", "si");		
+				
 				User user = manager.findByUsername(username);
-				request.getSession().setAttribute("logged_user", "si");
-				request.getSession().setAttribute("mail", user.getMail());
+		
+				request.getSession().setAttribute("mail_user", user.getMail());
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
 				//devo passare la lista dei contatti una volta logato
 	
 				// PROVA ottenimento contatto ###########
-//				Context contextContatto;
-//				ContactManagerLocal managerContatto =null;
-//				try{
-//					contextContatto = new InitialContext();
-//					managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
-									
-//				}catch (NamingException e ){
-//					e.printStackTrace();				
-//				}
-			//	Collection<Contact> lista = managerContatto.ListAll();
-				request.setAttribute("lista", "pluto pluto");
+				Context contextContatto;
+				ContactManagerLocal managerContatto =null;
+				try{
+					contextContatto = new InitialContext();
+					managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
+			
+				}catch (NamingException e){
+					e.printStackTrace();				
+				}
+				List<Contact> lista = managerContatto.ListAll();
+				if (lista.isEmpty()){
+					request.setAttribute("lista", "nessun contatto");
+				}else{
+					request.getSession().setAttribute("lista", lista.get(0));
+				//	request.setAttribute("lista", lista.get(0));
+	//				request.setAttribute("lista", lista);
+				}
+				
 				//########################################
 				
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);

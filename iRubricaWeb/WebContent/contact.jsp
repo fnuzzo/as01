@@ -30,7 +30,7 @@
 		<div id="top">
 			<div id="top_left">
 			<ul>
-				<li><a href="Contact">
+				<li><a href="Contacts">
 						<img src="template/add_contact.jpg" alt="add contact"/>
 					</a>
 				</li>
@@ -50,7 +50,16 @@
 			<center><h2>Lista contatti</h2></center>
 			<!-- Esempio. Da importare la lista dal database -->
 			<!-- <a href="ViewContact">Pluto pluto</a> -->
-			<a href="ViewContact"><c:out value='${lista}'/></a>
+			<c:choose>
+			<c:when test="${lista == 'nessun contatto'}">
+				<c:out value='${lista}'/>
+			</c:when>
+			<c:otherwise>
+			
+				 <a href="ViewContact"><c:out value='${lista.name}'/></a><br/>
+			
+			</c:otherwise>
+			</c:choose>
 		</div>
 		<div id="right">
 	

@@ -1,10 +1,10 @@
 package iR.Servlet;
 
 import iR.entityManager.ContactManagerLocal;
-
+import iR.entity.Contact;
 import java.io.IOException;
 import java.util.Date;
-
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,13 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Contact
  */
-public class Contact extends HttpServlet {
+public class Contacts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Contact() {
+    public Contacts() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -86,7 +86,7 @@ public class Contact extends HttpServlet {
 				}catch (NamingException e ){
 					e.printStackTrace();				
 				}
-					
+									
 				Date insertDate = null;
 				Integer idCreatore = 1;
 			
@@ -94,6 +94,17 @@ public class Contact extends HttpServlet {
 								address_home, address_office, fax, mail, insertDate, note, 
 								idCreatore, other, web, city, state);
 				request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
+				
+				List<Contact> lista = manager.ListAll();
+				if (lista.isEmpty()){
+					request.setAttribute("lista", "nessun contatto");
+				}else{
+					request.getSession().setAttribute("lista", lista.get(0));
+				//	request.setAttribute("lista", lista.get(0));
+	//				request.setAttribute("lista", lista);
+				}
+							
+			
 	    	}else{
 	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
 	    	}
