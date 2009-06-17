@@ -56,7 +56,8 @@
 			</c:when>
 			<c:otherwise>
 			
-				 <a href="ViewContact?idcon=${lista.id}"><c:out value='${lista.name}'/></a><br/>
+				 <a href="ViewContact?idcon=${lista.id}">
+				 	<c:out value='${lista.name}'/>&nbsp;<c:out value='${lista.surname}'/></a><br/>
 			
 			</c:otherwise>
 			</c:choose>
