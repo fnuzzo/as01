@@ -104,12 +104,11 @@ public class Login extends HttpServlet {
 				request.getSession().setAttribute("logged_user", "si");		
 				
 				User user = manager.findByUsername(username);
-		
 				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
-				//devo passare la lista dei contatti una volta logato
-	
-				// PROVA ottenimento contatto ###########
+				
+				//mi ricavo la lista dei contatti e la passo in una variabile di sessione
+				//al momento del login
 				Context contextContatto;
 				ContactManagerLocal managerContatto =null;
 				try{
@@ -123,12 +122,8 @@ public class Login extends HttpServlet {
 				if (lista.isEmpty()){
 					request.setAttribute("lista", "nessun contatto");
 				}else{
-					request.getSession().setAttribute("lista", lista.get(0));
-				//	request.setAttribute("lista", lista.get(0));
-	//				request.setAttribute("lista", lista);
+					request.getSession().setAttribute("lista", lista);
 				}
-				
-				//########################################
 				
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}else{

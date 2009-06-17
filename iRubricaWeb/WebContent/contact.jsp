@@ -48,6 +48,7 @@
 		</div>
 		<div id="left">
 			<center><h2>Lista contatti</h2></center>
+			<c:out value='${num}'/>
 			<!-- Esempio. Da importare la lista dal database -->
 			<!-- <a href="ViewContact">Pluto pluto</a> -->
 			<c:choose>
@@ -55,10 +56,10 @@
 				<c:out value='${lista}'/>
 			</c:when>
 			<c:otherwise>
-			
-				 <a href="ViewContact?idcon=${lista.id}">
-				 	<c:out value='${lista.name}'/>&nbsp;<c:out value='${lista.surname}'/></a><br/>
-			
+				<c:forEach	items="${lista}" var="elemento">
+				 <a href="ViewContact?idcon=${elemento.id}">
+				 	<c:out value='${elemento.name}'/>&nbsp;<c:out value='${elemento.surname}'/></a><br/>
+				 </c:forEach>
 			</c:otherwise>
 			</c:choose>
 		</div>
