@@ -95,14 +95,12 @@ public class Contacts extends HttpServlet {
 								idCreatore, other, web, city, state);
 				request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
 				
+				//aggiorno la lista nella variabile di sessione appena aggiungo un contatto
 				List<Contact> lista = manager.ListAll();
 				if (lista.isEmpty()){
 					request.getSession().setAttribute("lista", "nessun contatto");
 				}else{
-				//	request.getSession().setAttribute("lista", lista.get(0));
 					request.getSession().setAttribute("lista", lista);
-				//	request.setAttribute("lista", lista.get(0));
-	//				request.setAttribute("lista", lista);
 				}		
 			
 	    	}else{
