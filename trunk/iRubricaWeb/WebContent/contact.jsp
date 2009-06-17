@@ -56,13 +56,12 @@
 			</c:when>
 			<c:otherwise>
 			
-				 <a href="ViewContact"><c:out value='${lista.name}'/></a><br/>
+				 <a href="ViewContact?idcon=${lista.id}"><c:out value='${lista.name}'/></a><br/>
 			
 			</c:otherwise>
 			</c:choose>
 		</div>
 		<div id="right">
-	
 		<c:choose>
 		<c:when test="${link_clicked == 'add'}">
 				<!-- Includo la pagina per aggingere un contatto -->
