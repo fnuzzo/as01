@@ -62,7 +62,9 @@
 					<td><input id="password2" type="password" name="password2"/></td>
 					</tr>
 					<tr>
-					<td colspan="2"><br/><input type="submit" value="registrati"/></td>
+					<td colspan="2"><br/>
+					<input type="hidden" name="iduser" value="new"/>
+					<input type="submit" value="registrati"/></td>
 					</tr>
 					</table>		
 				</form>
