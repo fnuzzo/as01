@@ -57,13 +57,34 @@ public class ViewContact extends HttpServlet {
 
 	public void ricava_parametri(HttpServletRequest request){
 		request.setAttribute("idcontact", "007");
+	/*	request.setAttribute("name", name);
+	    request.setAttribute("surname", surname);
+	    request.setAttribute("mail", mail);
+	    request.setAttribute("phone_home", phone_home);
+	    request.setAttribute("phone_office", phone_office);
+	    request.setAttribute("cell", cell);
+	    request.setAttribute("fax", fax);
+	    request.setAttribute("other", other);
+	    request.setAttribute("web", web);
+	    request.setAttribute("city", city);
+	    request.setAttribute("state", state);
+	    request.setAttribute("address_home", address_home);
+	    request.setAttribute("address_office", address_office);
+	    request.setAttribute("note", note); */
+		
 		request.setAttribute("name", "Pluto");
 	    request.setAttribute("surname", "Pippo");
 	    request.setAttribute("mail", "pluto@libero.it");
-	    request.setAttribute("phone", "0541001122");
-	    request.setAttribute("cell", "3331212123");
-	    request.setAttribute("skype", "plutopluto");
-	    request.setAttribute("adress","Via dei campanelli 31. 61432 Bologna BO");
+	    request.setAttribute("phone_home", "123");
+	    request.setAttribute("phone_office", "321");
+	    request.setAttribute("cell", "111");
+	    request.setAttribute("fax", "222");
+	    request.setAttribute("other", "boooo");
+	    request.setAttribute("web", "www.pirla.com");
+	    request.setAttribute("city", "bologna");
+	    request.setAttribute("state", "italia");
+	    request.setAttribute("address_home", "via dei mille");
+	    request.setAttribute("address_office", "via zamboni");
 	    request.setAttribute("note", "farasssssssssssssssssss ssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssssssss???");
 		
 	}

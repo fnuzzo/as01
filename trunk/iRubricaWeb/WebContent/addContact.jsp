@@ -1,3 +1,4 @@
+* = campi obbligatori<br/><br/>
 <center>
 <form id="add_contact" name="add_contact" action="Contact" method="post">
 <table width="600px">
@@ -33,9 +34,9 @@
 	</tr>	
 	<tr>
 		<td><label for="address_home">Indirizzo casa*:</label></td>
-		<td><textarea name="address_home"><c:out value='${address_home}'/></textarea><br/></td>
+		<td><input id="address_home" type="text" size="15" name="address_home" value='${address_home}'/></td>
 		<td><label for="address_office">Indirizzo ufficio:</label></td>
-		<td><textarea name="address_office"><c:out value='${address_office}'/></textarea><br/></td>
+		<td><input id="address_office" type="text" size="15" name="address_office" value='${address_office}'/></td>
 	</tr>	
 	<tr>
 		<td><label for="other">Other:</label></td>
