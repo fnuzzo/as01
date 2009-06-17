@@ -102,8 +102,7 @@ public class Contacts extends HttpServlet {
 					request.getSession().setAttribute("lista", lista.get(0));
 				//	request.setAttribute("lista", lista.get(0));
 	//				request.setAttribute("lista", lista);
-				}
-							
+				}		
 			
 	    	}else{
 	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
