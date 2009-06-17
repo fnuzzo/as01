@@ -22,12 +22,12 @@ import javax.persistence.*;
 public class User implements Serializable {
 
 	
-	
-	@Column(name = "id", nullable = true)
-	@GeneratedValue (strategy = GenerationType.AUTO )
-	private int id;
-	
 	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO )
+	@Column(name = "id", nullable = true)
+	private Long id;
+	
+	
 	@Column(name = "username", nullable = false, length = 30)
 	private String username;
 	
@@ -48,11 +48,11 @@ public class User implements Serializable {
 	
 	
 	
-	public int getId() { 
+	public Long getId() { 
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}   
 	public String getUserName() {
