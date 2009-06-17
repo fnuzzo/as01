@@ -97,7 +97,7 @@ public class Contacts extends HttpServlet {
 				
 				List<Contact> lista = manager.ListAll();
 				if (lista.isEmpty()){
-					request.setAttribute("lista", "nessun contatto");
+					request.getSession().setAttribute("lista", "nessun contatto");
 				}else{
 					request.getSession().setAttribute("lista", lista.get(0));
 				//	request.setAttribute("lista", lista.get(0));
