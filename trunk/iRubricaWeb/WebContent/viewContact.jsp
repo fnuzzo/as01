@@ -2,7 +2,7 @@
 	<c:when test="${operazione == 'edit'}">
 		<h2>Modifica dati contatto</h2>
 		<center>
-		<form id="mod_contact" name="mod_contact" action="Contact" method="post">
+		<form id="mod_contact" name="mod_contact" action="Contacts" method="post">
 		<table border="0" cellpadding="0" width="600px">
 			<tr><td><label for="name">Nome:</label></td>
 				<td><input maxlength="15" type="text" size="15" name="name" value="${name}"/></td>
