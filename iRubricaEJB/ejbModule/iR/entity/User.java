@@ -14,6 +14,7 @@ import javax.persistence.*;
 @NamedQueries({
 				@NamedQuery(name = "User.findByUsername", query = "SELECT a FROM User a WHERE a.username = :username"),
 				@NamedQuery(name = "User.findAll", query = "SELECT a FROM User a"),
+				@NamedQuery(name = "User.updateUser", query = "UPDATE User a SET a.mail = :mail, a.passwd = :passwd WHERE a.username = :username"),
 				})
 
 
@@ -25,7 +26,7 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO )
 	@Column(name = "id", nullable = true)
-	private Long id;
+	private int id;
 	
 	
 	@Column(name = "username", nullable = false, length = 30)
@@ -48,11 +49,11 @@ public class User implements Serializable {
 	
 	
 	
-	public Long getId() { 
+	public int getId() { 
 		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}   
 	public String getUserName() {
