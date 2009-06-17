@@ -73,10 +73,10 @@ public class Contact extends HttpServlet {
     		request.setAttribute("msgError","La campi sono tutti vuoi. Riempire la form!");
     		if (!idcontact.equals("new")){ request.setAttribute("operazione","edit"); }
 			
-    	}else if (!name.equals("") && !surname.equals("") && !city.equals("") && !state.equals("") 
+    	}else if (!name.equals("") && !surname.equals("") && !mail.equals("") && !city.equals("") && !state.equals("") 
 	    		&& !address_home.equals("") && !phone_home.equals("")  ){
     		//quando ho inserito tutti i campi obbligatori
-    		
+    	
     		if (idcontact.equals("new")){
     			Context context;
 	    		ContactManagerLocal manager =null;

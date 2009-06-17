@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import nwr.entityManager.interfacce.User_local;
-//import nwr.stateful.interfacce.LoggedUserLocal;
-
 /**
  * Servlet implementation class Registrazione
  */
@@ -45,38 +42,20 @@ public class Registrazione extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-/*		 User_local manager;
-		 //LoggedUserLocal logged = (LoggedUserLocal)request.getSession().getAttribute("logged_user");
-		 
-			try{
-				context = new InitialContext();
-				manager = (User_local)context.lookup("newRubrica/User_bean/local");
-			} catch (NamingException e)    {
-			    e.printStackTrace();
-			   // throw new RuntimeException(e);
-			}
-			
-*/
-		
+
 		Context context;
 		UserManagerLocal manager= null;;
 		String email= request.getParameter("mail");
 		String username= request.getParameter("username");
 		try {
 			context = new InitialContext();
-			
 			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
-			
-			
-			
+		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		String username = null;
-//		if ((username = request.getParameter("username")) != null){
-//		 username = username.toLowerCase();
-//		}
+
 		String password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 
