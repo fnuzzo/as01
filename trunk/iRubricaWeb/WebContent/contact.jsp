@@ -69,7 +69,7 @@
 		<c:when test="${link_clicked == 'account'}">
 			<!-- Includo la pagina per aggingere un contatto -->
 			<h2>Dati personali dell'account</h2>
-			Deve pigliare dati dell'utente dal database oppure gli li facci inserire qui.
+			<%@ include file="account.jsp" %>
 		</c:when>
 		<c:when test="${link_clicked == 'view'}">
 				<!-- Scheda contatto -->
