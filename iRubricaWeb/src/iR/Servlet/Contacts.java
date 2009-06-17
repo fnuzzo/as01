@@ -99,7 +99,8 @@ public class Contacts extends HttpServlet {
 				if (lista.isEmpty()){
 					request.getSession().setAttribute("lista", "nessun contatto");
 				}else{
-					request.getSession().setAttribute("lista", lista.get(0));
+				//	request.getSession().setAttribute("lista", lista.get(0));
+					request.getSession().setAttribute("lista", lista);
 				//	request.setAttribute("lista", lista.get(0));
 	//				request.setAttribute("lista", lista);
 				}		
