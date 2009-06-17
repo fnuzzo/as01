@@ -31,89 +31,83 @@ public class ContactManager implements ContactManagerLocal {
 
   
 
-	public void addContact(String name, String surname, String tel_home,
-			String tel_office, String mobile_tel, String address_home,
-			String address_office,String fax, String mail, Date insertDate, String note,
-			int idCreatore, String other, String web, String city,
-			String state) {
+	public void addContact(String name, String surname, String tel_home, String tel_office, String mobile_tel, 
+							String address_home, String address_office,String fax, String mail, Date insertDate, 
+							String note, int idCreatore, String other, String web, String city, String state) {
 		
 		
-		Contact ct = new Contact();
-		ct.setName(name);
-		ct.setSurname(surname);
-		ct.setTel_home(tel_home);
-		ct.setTel_office(tel_office);
-		ct.setAddress_home(address_home);
-		ct.setAddress_office(address_office);
-		ct.setFax(fax);
-		ct.setEmail(mail);
-		ct.setInsertDate(insertDate);
-		ct.setNote(note);
-		ct.setIdCreatore(idCreatore);
-		ct.setOther(other);
-		ct.setWeb(web);
-		ct.setCity(city);
-		ct.setState(state);
+			Contact ct = new Contact();
+					
+					ct.setName(name);
+					ct.setSurname(surname);
+					ct.setTel_home(tel_home);
+					ct.setTel_office(tel_office);
+					ct.setAddress_home(address_home);
+					ct.setAddress_office(address_office);
+					ct.setFax(fax);
+					ct.setEmail(mail);
+					ct.setInsertDate(insertDate);
+					ct.setNote(note);
+					ct.setIdCreatore(idCreatore);
+					ct.setOther(other);
+					ct.setWeb(web);
+					ct.setCity(city);
+					ct.setState(state);
 
-		em.persist(ct);
-		
-		
-	}
-/*
-	public List UsersLike(String value){
-		EntityManager em=emf.createEntityManager();
-		Query q=em.createNamedQuery("Users.like");
-		q.setParameter("name", value);
-		List l=q.getResultList();
-		return l;
+					em.persist(ct);	
 		}
-	
-	*/
-	
-	
 
-		
-		
-		
 	
-	public Contact contactFindById(int value){
-			Query qe = em.createNamedQuery("Contact.findById");
-			qe.setParameter("id", value );
-			Contact c = (Contact) qe.getSingleResult();
-			return c;
+	public Contact findById(int value){		
+			Contact contact = em.find(Contact.class, value);
+			return contact;
 			}
 	
-	public List contactFindByName(String value){
+	public List<Contact> findByName(String name) {
 		Query qe = em.createNamedQuery("Contact.findByName");
-		qe.setParameter("name", value );
-		List l = qe.getResultList();
+		qe.setParameter("name", name );
+		List <Contact> l =  qe.getResultList();
+		
 		return l;
-		}
+	}
+	
+	public List<Contact> findBySurname(String surname) {
+		Query qe = em.createNamedQuery("Contact.findBySurname");
+		qe.setParameter("surname",surname );
+		List <Contact> l =  qe.getResultList();
+		
+		return l;
+	}
+	
 
-	
-	
-	
-	
-	
-	
-	
-	public Collection<Contact> ListAll() {
+	public List<Contact> ListAll() {
 		Query all =em.createQuery("from Contact order by surname");
-		return all.getResultList();
-	}
-	
-	
-	
-	
-	public Contact findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		List l = all.getResultList();
+		return l;
 	}
 
-	public Contact searchUserForName(String name) {
-		Contact contact = em.find(Contact.class, name);
-		return contact;
+
+
+	public List<Contact> findByEmail(String email) {
+		Query qe = em.createNamedQuery("Contact.findByEmail");
+		qe.setParameter("email",email );
+		List <Contact> l = qe.getResultList();
+		
+		return l;
 	}
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
 
 	
 
