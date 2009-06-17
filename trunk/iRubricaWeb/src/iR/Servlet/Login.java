@@ -5,8 +5,6 @@ import iR.entity.Contact;
 import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
 import iR.entityManager.UserManagerLocal;
-import iR.stateful.LoginStateLocal;
-
 
 import java.io.IOException;
 import java.util.List;
@@ -107,7 +105,7 @@ public class Login extends HttpServlet {
 				
 				User user = manager.findByUsername(username);
 		
-				request.getSession().setAttribute("mail_user", user.getMail());
+				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
 				//devo passare la lista dei contatti una volta logato
 	
