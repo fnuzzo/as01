@@ -2,7 +2,11 @@ package iR.entity;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -15,23 +19,26 @@ import javax.persistence.*;
 @NamedQueries({
 				@NamedQuery(name = "Contact.findById", query = "SELECT a FROM Contact a WHERE a.id = :id"),
 				@NamedQuery(name = "Contact.findByName", query = "SELECT a FROM Contact a WHERE a.name = :name"),
+				@NamedQuery(name = "Contact.findBySurname", query = "SELECT a FROM Contact a WHERE a.surname = :surname"),
 				@NamedQuery(name = "Contact.findByCity", query = "SELECT a FROM Contact a WHERE a.city = :city"),
+				@NamedQuery(name = "Contact.findByEmail", query = "SELECT a FROM Contact a WHERE a.email = :email"),
 				@NamedQuery(name = "Contact.findAll", query = "SELECT a FROM Contact a"),
 				})
 				
 public class Contact implements Serializable {
-
 	
 	
-	@Column(name = "id", nullable = true)
+	
+	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO )
+	@Column(name = "id", nullable = false)	
 	private Integer id = 0;
 	
 	
 	@Column(name = "name", nullable = false, length = 30)
 	private String name;
 	
-	@Id
+	
 	@Column(name = "surname", nullable = false, length = 30)
 	private String surname;
 	
@@ -78,11 +85,9 @@ public class Contact implements Serializable {
 	
 	@Column(name = "state", nullable = true)
 	private String state;
-	
 
-	public Contact() {
-		super();
-	}
+	
+	
 	
 
 	public String getCity() {
@@ -104,14 +109,11 @@ public class Contact implements Serializable {
 	public int getId() {
 		return this.id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-	
-
-
 	public String getName() {
 		return this.name;
 	}
