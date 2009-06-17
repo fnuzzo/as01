@@ -31,11 +31,10 @@ public class ViewContact extends HttpServlet {
 		//mi ricavo il parametro passato col get
 		String ris = request.getParameter("id");
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-
 		//richiamo la funzione che ricava i parametri dal db
 		ricava_parametri(request);
+		
+		
 		//ris può assumere i valori "edit" e "del"
 		if (ris != null){
 			if (ris.equals("edit")) { 
@@ -57,6 +56,7 @@ public class ViewContact extends HttpServlet {
 	}
 
 	public void ricava_parametri(HttpServletRequest request){
+		request.setAttribute("idcontact", "007");
 		request.setAttribute("name", "Pluto");
 	    request.setAttribute("surname", "Pippo");
 	    request.setAttribute("mail", "pluto@libero.it");

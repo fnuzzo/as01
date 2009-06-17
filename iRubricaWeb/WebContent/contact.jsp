@@ -63,7 +63,8 @@
 		</c:when>
 		<c:when test="${link_clicked == 'addOK'}">
 				<!-- Includo la pagina per aggingere un contatto -->
-				<h2>Dati contatto salvati con successo!</h2>		
+				<h2>Dati contatto salvati con successo!</h2>	
+				<c:out value="${msgok}"/>	
 		</c:when>
 		<c:when test="${link_clicked == 'account'}">
 			<!-- Includo la pagina per aggingere un contatto -->
