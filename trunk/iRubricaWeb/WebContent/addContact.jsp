@@ -9,7 +9,7 @@
 		<td><input maxlength="15" type="text" size="15" name="surname" value="${surname}"/></td>
 	</tr>
 	<tr>
-		<td><label for="mail">E-mail:</label></td>
+		<td><label for="mail">E-mail*:</label></td>
 		<td><input maxlength="20" type="text" size="15" name="mail" value="${mail}"/></td>
 		<td><label for="web">Web:</label></td>
 		<td><input maxlength="20" type="text" size="15" name="web" value="${web}"/></td>
