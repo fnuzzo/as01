@@ -46,6 +46,7 @@ public class Contact extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			
+		String idcontact = request.getParameter("idcontact");
 		//rilevo i campi inseriti nel form di inserimento di un nuovo contatto
 		//Obbligatori: name, surname, almeno un tell, 
 		String name = request.getParameter("name");
@@ -63,32 +64,68 @@ public class Contact extends HttpServlet {
 	    String city = request.getParameter("city");
 	    String state = request.getParameter("state");
 	    
-	 //   if (name.compareTo("")==0 || surname.compareTo("")==0 || adress.compareTo("")==0 
-	//    		|| (phone.compareTo("")==0 || cell.compareTo("")==0)){
-	//		request.setAttribute("msgError","Inserisci almeno un numero di telefono!");
-		//}else{
-			//salvati tutti i dati con successo
+	    if (idcontact.equals("new")){
+	  
+	    	if (name.compareTo("")==0 && surname.compareTo("")==0 && mail.compareTo("")==0 
+	    			&& phone_home.compareTo("")==0 && phone_office.compareTo("")==0 
+	    			&& cell.compareTo("")==0 && note.compareTo("")==0 && address_home.compareTo("")==0
+	    			&& address_office.compareTo("")==0 && fax.compareTo("")==0 && other.compareTo("")==0 
+	    			&& web.compareTo("")==0 && city.compareTo("")==0 && state.compareTo("")==0){
+	    	
+	    		//quando la form è completamente vuota
+	    		request.setAttribute("msgError","La campi sono tutti vuoi. Riempire la form!");
 			
-			Context context;
-			ContactManagerLocal manager =null;
-			try{
-				context = new InitialContext();
-				manager = (ContactManagerLocal) context.lookup("iRubrica/ContactManager/local");
-								
-			}catch (NamingException e ){
-				e.printStackTrace();				
-			}
+	    	}else if (name.compareTo("")!=0 && surname.compareTo("")!=0 
+	    		&& city.compareTo("")!=0 && state.compareTo("")!=0 
+	    		&& address_home.compareTo("")!=0 && phone_home.compareTo("")!=0 ){
+	    		
+	    		//quando ho inserito tutti i campi obbligatori
+	    		Context context;
+	    		ContactManagerLocal manager =null;
+	    		try{
+	    			context = new InitialContext();
+	    			manager = (ContactManagerLocal) context.lookup("iRubrica/ContactManager/local");
+				}catch (NamingException e ){
+					e.printStackTrace();				
+				}
+					
+				Date insertDate = null;
+				Integer idCreatore = 1;
 			
-			Date insertDate = null;
-			Integer idCreatore = 1;
-			manager.addContact(name, surname, phone_home, phone_office, cell, 
+				manager.addContact(name, surname, phone_home, phone_office, cell, 
 								address_home, address_office, fax, mail, insertDate, note, 
 								idCreatore, other, web, city, state);
-			
+				request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
+				request.getSession().setAttribute("link_clicked", "addOK");
+			}else{ 	//nel caso in cui non ho inserito tutti i campi obbligatori
+				request.setAttribute("name", name);
+			    request.setAttribute("surname", surname);
+			    request.setAttribute("mail", mail);
+			    request.setAttribute("phone_home", phone_home);
+			    request.setAttribute("phone_office", phone_office);
+			    request.setAttribute("cell", cell);
+			    request.setAttribute("fax", fax);
+			    request.setAttribute("other", other);
+			    request.setAttribute("web", web);
+			    request.setAttribute("city", city);
+			    request.setAttribute("state", state);
+			    request.setAttribute("address_home", address_home);
+			    request.setAttribute("address_office", address_office);
+			    request.setAttribute("note", note);
+				request.setAttribute("msgError","Inserisci tutti i campi obbligatori");    	
+			}   
+
+	    
+	    
+	    }else{ //entro 	qui quando id="a un id preso dal db"
+	    		//in sto caso voglio solo modificare un contatto
+					
+			request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
 			request.getSession().setAttribute("link_clicked", "addOK");
-			
-	//	}   
-		getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
+		}
+	    getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
 
+
 }
+

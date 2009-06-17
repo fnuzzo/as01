@@ -1,9 +1,14 @@
 package iR.Servlet;
 
+
+import iR.entity.Contact;
+import iR.entityManager.ContactManagerLocal;
+
 import iR.entityManager.UserManagerLocal;
 
 
 import java.io.IOException;
+import java.util.Collection;
 //import java.io.PrintWriter;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -83,17 +88,31 @@ public class Login extends HttpServlet {
 			request.setAttribute("mgerrore","Username o password mancanti!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else 
-			
-			if (manager.auth(username, passwd)) {
+		}else if (manager.auth(username, passwd)) {
 				 
 				request.getSession().setAttribute("logged_user", "si");
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
+				//devo passare la lista dei contatti una volta logato
+	
+				// PROVA ottenimento contatto ###########
+//				Context contextContatto;
+//				ContactManagerLocal managerContatto =null;
+//				try{
+//					contextContatto = new InitialContext();
+//					managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
+									
+//				}catch (NamingException e ){
+//					e.printStackTrace();				
+//				}
+			//	Collection<Contact> lista = managerContatto.ListAll();
+				request.setAttribute("lista", "pluto pluto");
+				//########################################
+				
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
-				//response.sendRedirect("contact.jsp");
 			}else{
 				request.setAttribute("mgerrore", "Username o password errate!");
 				getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
+
 			
 		}
 			
