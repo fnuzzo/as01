@@ -13,7 +13,7 @@ public interface UserManagerLocal {
 	
 	void removeUser(String user);
 	
-	void updateUser(String username, String mail,String passwd,String type);
+	void updateUser(String username, String mail,String passwd);
 	
 	String encode(String pass);
 	

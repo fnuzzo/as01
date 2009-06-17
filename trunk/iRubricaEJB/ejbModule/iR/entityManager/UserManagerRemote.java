@@ -1,4 +1,6 @@
 package iR.entityManager;
+import iR.entity.User;
+
 import javax.ejb.Remote;
 
 @Remote
@@ -16,5 +18,8 @@ public interface UserManagerRemote {
 	
 	void changeStatus(String username,String status);
 	
+	boolean auth (String username, String password);
+	
+	User findByUsername(String username);
 	
 }
