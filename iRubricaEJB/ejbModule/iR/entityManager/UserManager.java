@@ -66,9 +66,18 @@ public class UserManager implements UserManagerLocal {
 	
 	
 	
-	public void updateUser(String username, String mail, String passwd,
-			String type) {
+	public void updateUser(String username, String mail, String passwd) {
 		// TODO Auto-generated method stub
+		User us = findByUsername(username);
+		us.setMail(mail);
+		us.setPasswd(passwd);
+		
+		Query qe = em.createNamedQuery("User.updateUser");
+		qe.setParameter("username", username );
+		qe.setParameter("mail",mail);
+		qe.setParameter("passwd", passwd );
+		qe.executeUpdate();
+		
 		
 	}
 
@@ -113,6 +122,8 @@ public class UserManager implements UserManagerLocal {
 		
 		return us;
 	}
+
+
     
     
     
