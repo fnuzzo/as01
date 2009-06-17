@@ -38,9 +38,10 @@
 				<td valign="top"><label for="note">Note:</label></td>
 				<td><textarea name="note" rows="5" cols="25"><c:out value='${note}'/></textarea></td>
 			</tr>			
-			<tr><td colspan="3">
+			<tr><td colspan="4">
 				<input type="hidden" name="idcontact" value="${idcontact}"/>
 				<input type="submit" name="salva" value="Salva modifiche"/>
+				<span id="errore">&nbsp;<c:out value="${msgError}"/></span>
 			</td></tr>
 		</table>
 		</form>

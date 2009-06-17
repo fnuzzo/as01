@@ -64,23 +64,21 @@ public class Contact extends HttpServlet {
 	    String city = request.getParameter("city");
 	    String state = request.getParameter("state");
 	    
-	    if (idcontact.equals("new")){
-	  
-	    	if (name.compareTo("")==0 && surname.compareTo("")==0 && mail.compareTo("")==0 
-	    			&& phone_home.compareTo("")==0 && phone_office.compareTo("")==0 
-	    			&& cell.compareTo("")==0 && note.compareTo("")==0 && address_home.compareTo("")==0
-	    			&& address_office.compareTo("")==0 && fax.compareTo("")==0 && other.compareTo("")==0 
-	    			&& web.compareTo("")==0 && city.compareTo("")==0 && state.compareTo("")==0){
+    	if (name.equals("") && surname.equals("") && mail.equals("") && phone_home.equals("") 
+    			&& phone_office.equals("") && cell.equals("") && note.equals("") && address_home.equals("")
+    			&& address_office.equals("") && fax.equals("") && other.equals("") && web.equals("") 
+    			&& city.equals("") && state.equals("")){
 	    	
-	    		//quando la form è completamente vuota
-	    		request.setAttribute("msgError","La campi sono tutti vuoi. Riempire la form!");
+    		//quando la form è completamente vuota
+    		request.setAttribute("msgError","La campi sono tutti vuoi. Riempire la form!");
+    		if (!idcontact.equals("new")){ request.setAttribute("operazione","edit"); }
 			
-	    	}else if (name.compareTo("")!=0 && surname.compareTo("")!=0 
-	    		&& city.compareTo("")!=0 && state.compareTo("")!=0 
-	    		&& address_home.compareTo("")!=0 && phone_home.compareTo("")!=0 ){
-	    		
-	    		//quando ho inserito tutti i campi obbligatori
-	    		Context context;
+    	}else if (!name.equals("") && !surname.equals("") && !city.equals("") && !state.equals("") 
+	    		&& !address_home.equals("") && !phone_home.equals("")  ){
+    		//quando ho inserito tutti i campi obbligatori
+    		
+    		if (idcontact.equals("new")){
+    			Context context;
 	    		ContactManagerLocal manager =null;
 	    		try{
 	    			context = new InitialContext();
@@ -96,33 +94,31 @@ public class Contact extends HttpServlet {
 								address_home, address_office, fax, mail, insertDate, note, 
 								idCreatore, other, web, city, state);
 				request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
-				request.getSession().setAttribute("link_clicked", "addOK");
-			}else{ 	//nel caso in cui non ho inserito tutti i campi obbligatori
-				request.setAttribute("name", name);
-			    request.setAttribute("surname", surname);
-			    request.setAttribute("mail", mail);
-			    request.setAttribute("phone_home", phone_home);
-			    request.setAttribute("phone_office", phone_office);
-			    request.setAttribute("cell", cell);
-			    request.setAttribute("fax", fax);
-			    request.setAttribute("other", other);
-			    request.setAttribute("web", web);
-			    request.setAttribute("city", city);
-			    request.setAttribute("state", state);
-			    request.setAttribute("address_home", address_home);
-			    request.setAttribute("address_office", address_office);
-			    request.setAttribute("note", note);
-				request.setAttribute("msgError","Inserisci tutti i campi obbligatori");    	
-			}   
+	    	}else{
+	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
+	    	}
+	    	request.getSession().setAttribute("link_clicked", "addOK");
+			
+	    }else{ 	//nel caso in cui non ho inserito tutti i campi obbligatori
+			request.setAttribute("idcontact", idcontact);
+			request.setAttribute("name", name);
+		    request.setAttribute("surname", surname);
+		    request.setAttribute("mail", mail);
+		    request.setAttribute("phone_home", phone_home);
+		    request.setAttribute("phone_office", phone_office);
+		    request.setAttribute("cell", cell);
+		    request.setAttribute("fax", fax);
+		    request.setAttribute("other", other);
+		    request.setAttribute("web", web);
+		    request.setAttribute("city", city);
+		    request.setAttribute("state", state);
+		    request.setAttribute("address_home", address_home);
+		    request.setAttribute("address_office", address_office);
+		    request.setAttribute("note", note);
+			request.setAttribute("msgError","Inserisci tutti i campi obbligatori");  
+			if (!idcontact.equals("new")){ request.setAttribute("operazione","edit"); }
+		}   
 
-	    
-	    
-	    }else{ //entro 	qui quando id="a un id preso dal db"
-	    		//in sto caso voglio solo modificare un contatto
-					
-			request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
-			request.getSession().setAttribute("link_clicked", "addOK");
-		}
 	    getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
 

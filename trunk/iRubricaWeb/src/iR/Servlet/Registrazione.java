@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import nwr.entityManager.interfacce.User_local;
-//import nwr.stateful.interfacce.LoggedUserLocal;
-
 /**
  * Servlet implementation class Registrazione
  */
@@ -45,18 +42,6 @@ public class Registrazione extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-/*		 User_local manager;
-		 //LoggedUserLocal logged = (LoggedUserLocal)request.getSession().getAttribute("logged_user");
-		 
-			try{
-				context = new InitialContext();
-				manager = (User_local)context.lookup("newRubrica/User_bean/local");
-			} catch (NamingException e)    {
-			    e.printStackTrace();
-			   // throw new RuntimeException(e);
-			}
-			
-*/
 		
 		Context context;
 		UserManagerLocal manager= null;;
@@ -64,19 +49,12 @@ public class Registrazione extends HttpServlet {
 		String username= request.getParameter("username");
 		try {
 			context = new InitialContext();
-			
-			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
-			
-			
-			
+			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		String username = null;
-//		if ((username = request.getParameter("username")) != null){
-//		 username = username.toLowerCase();
-//		}
+
 		String password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 
@@ -92,7 +70,7 @@ public class Registrazione extends HttpServlet {
      			request.setAttribute("email",email);
      			request.setAttribute("errorMex","Le due password non coincidono!");		  
      		}else if(manager.exist(username)){
-     			request.setAttribute("errorMex","UserName Giˆ in uso!");
+     			request.setAttribute("errorMex","UserName Gia' in uso!");
      		}else {
      			
 			//qui entro nel caso in cui tutto va bene e sono pronto per inserire 

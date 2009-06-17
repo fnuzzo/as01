@@ -34,14 +34,13 @@ public class ViewContact extends HttpServlet {
 		//richiamo la funzione che ricava i parametri dal db
 		ricava_parametri(request);
 		
-		
 		//ris può assumere i valori "edit" e "del"
 		if (ris != null){
-			if (ris.equals("edit")) { 
+//			if (ris.equals("edit")) { 
+//				request.setAttribute("operazione",ris);	
+//			}else if (ris.equals("del")){
 				request.setAttribute("operazione",ris);	
-			}else if (ris.equals("del")){
-				request.setAttribute("operazione",ris);	
-			}
+//			}
 		}
 		getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
@@ -56,22 +55,8 @@ public class ViewContact extends HttpServlet {
 	}
 
 	public void ricava_parametri(HttpServletRequest request){
-		request.setAttribute("idcontact", "007");
-	/*	request.setAttribute("name", name);
-	    request.setAttribute("surname", surname);
-	    request.setAttribute("mail", mail);
-	    request.setAttribute("phone_home", phone_home);
-	    request.setAttribute("phone_office", phone_office);
-	    request.setAttribute("cell", cell);
-	    request.setAttribute("fax", fax);
-	    request.setAttribute("other", other);
-	    request.setAttribute("web", web);
-	    request.setAttribute("city", city);
-	    request.setAttribute("state", state);
-	    request.setAttribute("address_home", address_home);
-	    request.setAttribute("address_office", address_office);
-	    request.setAttribute("note", note); */
 		
+		request.setAttribute("idcontact", "007");
 		request.setAttribute("name", "Pluto");
 	    request.setAttribute("surname", "Pippo");
 	    request.setAttribute("mail", "pluto@libero.it");
@@ -87,5 +72,20 @@ public class ViewContact extends HttpServlet {
 	    request.setAttribute("address_office", "via zamboni");
 	    request.setAttribute("note", "farasssssssssssssssssss ssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssssssss???");
 		
+		/*	request.setAttribute("idcontact", idcontact);
+	    request.setAttribute("name", name);
+	    request.setAttribute("surname", surname);
+	    request.setAttribute("mail", mail);
+	    request.setAttribute("phone_home", phone_home);
+	    request.setAttribute("phone_office", phone_office);
+	    request.setAttribute("cell", cell);
+	    request.setAttribute("fax", fax);
+	    request.setAttribute("other", other);
+	    request.setAttribute("web", web);
+	    request.setAttribute("city", city);
+	    request.setAttribute("state", state);
+	    request.setAttribute("address_home", address_home);
+	    request.setAttribute("address_office", address_office);
+	    request.setAttribute("note", note); */
 	}
 }
