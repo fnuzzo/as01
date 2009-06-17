@@ -1,4 +1,8 @@
-
+<c:choose>
+<c:when test="${modifica_ok == 'ok'}">
+Ok, modificato.
+</c:when>
+<c:otherwise>
 <form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
 					<table>
 					<tr>
@@ -24,3 +28,5 @@
 					</tr>
 					</table>		
 				</form>
+</c:otherwise>
+</c:choose>
