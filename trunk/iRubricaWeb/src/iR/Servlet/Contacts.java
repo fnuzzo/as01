@@ -95,23 +95,35 @@ public class Contacts extends HttpServlet {
 				Date insertDate = null;
 				Integer idCreatore = 1;
 			
-				manager.addContact(name, surname, phone_home, phone_office, cell, 
+				//cerco un contatto con gli stessi campi (name,surname,mail,phone_home)
+				//del contatto che sto cercando di inserire
+				List<Contact> utenti_esistenti = manager.findByCombo(name, surname, mail, phone_home);
+				
+				if (utenti_esistenti.isEmpty()){
+					manager.addContact(name, surname, phone_home, phone_office, cell, 
 								address_home, address_office, fax, mail, insertDate, note, 
 								idCreatore, other, web, city, state);
-				request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
+					request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
 				
-				//aggiorno la lista nella variabile di sessione appena aggiungo un contatto
-				List<Contact> lista = manager.ListAll();
-				if (lista.isEmpty()){
-					request.getSession().setAttribute("lista", "nessun contatto");
-				}else{
-					request.getSession().setAttribute("lista", lista);
-				}		
+					//aggiorno la lista nella variabile di sessione appena aggiungo un contatto
+					List<Contact> lista = manager.ListAll();
+					if (lista.isEmpty()){
+						request.getSession().setAttribute("lista", "nessun contatto");
+					}else{
+						request.getSession().setAttribute("lista", lista);
+					}		
+					request.getSession().setAttribute("link_clicked", "addOK");
+					
+				}else {
+					//entro qui se il contatto che inserisco è gia presente in rubrica
+					request.setAttribute("msgError", "Utente gia presente in rubrica!!!");
+				}
 			
 	    	}else{
 	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
+	    		request.getSession().setAttribute("link_clicked", "addOK");
 	    	}
-	    	request.getSession().setAttribute("link_clicked", "addOK");
+	    	
 			
 	    }else{ 	//nel caso in cui non ho inserito tutti i campi obbligatori
 			request.setAttribute("idcontact", idcontact);
