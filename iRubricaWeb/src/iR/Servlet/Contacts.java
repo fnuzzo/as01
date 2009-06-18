@@ -35,7 +35,12 @@ public class Contacts extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.getSession().setAttribute("link_clicked", "add");
+		String page = request.getParameter("p");
+		if (page.equals("1")){
+			request.getSession().setAttribute("link_clicked", "no");
+		}else if(page.equals("2")){
+			request.getSession().setAttribute("link_clicked", "add");
+		}
 		response.sendRedirect("contact.jsp");
 	
 	}
