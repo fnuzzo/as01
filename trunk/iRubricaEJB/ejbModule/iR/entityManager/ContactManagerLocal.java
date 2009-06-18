@@ -26,6 +26,8 @@ public interface ContactManagerLocal {
 		List<Contact> findByEmail (String email);	
 			
 		Contact findById(int value);
+		
+		boolean removeContact(int id);
 			
 			
 
