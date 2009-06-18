@@ -49,7 +49,8 @@
 	</c:when>
 	<c:when test="${operazione == 'del'}">
 		<h2>Contatto eliminato con successo!</h2>
-		Implementare la fulzione di cancellazione contatto
+		<c:out value="${deleteOk}" />
+		<span id="errore"><c:out value="${deleteErr}"/></span> 
 	</c:when>
 	
 	<c:otherwise>
