@@ -30,6 +30,7 @@
 		<div id="top">
 			<div id="top_left">
 			<ul>
+				<li><a href=""><img src="template/home.jpg" alt="home" /></a></li>
 				<li><a href="Contacts">
 						<img src="template/add_contact.jpg" alt="add contact"/>
 					</a>
@@ -58,7 +59,7 @@
 			<c:otherwise>
 				<c:forEach	items="${lista}" var="elemento">
 				 <a href="ViewContact?idcon=${elemento.id}">
-				 	<c:out value='${elemento.name}'/>&nbsp;<c:out value='${elemento.surname}'/></a><br/>
+				 	<c:out value='${elemento.surname}'/>&nbsp;<c:out value='${elemento.name}'/></a><br/>
 				 </c:forEach>
 			</c:otherwise>
 			</c:choose>
@@ -87,16 +88,16 @@
 		</c:when>
 		<c:when test="${link_clicked == 'no' || link_clicked == null}">		
 			<center>
-			<h2>Visualizza la scheda dei tuoi contatti</h2>
+			<h2>Visualizza la scheda dei tuoi contatti (1)</h2>
 			<img src="template/web_contact.png"/>
 			</center>
 		</c:when>
-		<c:otherwise>
+ 		<c:otherwise>
 		<center>
-			<h2>Visualizza la scheda dei tuoi contatti</h2>
+			<h2>Visualizza la scheda dei tuoi contatti (2)</h2>
 			<img src="template/web_contact.png"/>
 		</center>
-		</c:otherwise>
+		</c:otherwise> 
 		</c:choose>
 		<br/>  	
 		</div>

@@ -6,6 +6,7 @@ import iR.entityManager.ContactManagerLocal;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -49,6 +50,7 @@ public class ViewContact extends HttpServlet {
 		}catch (NamingException e){
 			e.printStackTrace();				
 		}
+			
 		
 		//mi ricavo il contatto dall'id
 		//pero prima converto l'id che ho ricato con il get in un intero
@@ -58,9 +60,29 @@ public class ViewContact extends HttpServlet {
 		//ris può assumere i valori "edit" e "del"
 		if (ris != null){
 			request.setAttribute("operazione",ris);	
+			if (ris.equals("del") && idcontatto != null){
+				//elimino il contatto 
+				boolean canc = managerContatto.removeContact(id);
+				
+				if (canc){
+					//aggiorno la lista dopo aver eliminato il contatto
+					List<Contact> lista = managerContatto.ListAll();
+					if (lista.isEmpty()){
+						request.getSession().setAttribute("lista", "nessun contatto");
+					}else{
+						request.getSession().setAttribute("lista", lista);
+					}	
+					request.setAttribute("deleteOk", "Il contatto "+contatto.getName()+" "+contatto.getSurname()+" è stato eliminato!");
+				}else{
+					request.setAttribute("deleteErr", "Il contatto selezionato è gia stato cancellato o non esiste!");
+				}
+				
+			}
 		}else if (idcontatto != null){
 			request.getSession().setAttribute("contatto", contatto);
+
 		}
+		
 		getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
 
