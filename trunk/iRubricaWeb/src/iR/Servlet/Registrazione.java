@@ -86,7 +86,10 @@ public class Registrazione extends HttpServlet {
      		//l'user nel database
      			if(iduser.equals("new"))
      			{
-     			manager.addUser(username, email, password, "inattesa");
+     			//Se l'utente si chiama admin lo faccio admin (per poter eseguire i test)
+     				if(username.equals("admin"))
+     					manager.addUser(username, email, password, "admin");
+     				else manager.addUser(username, email, password, "inattesa");
      			List<User> l= manager.allUser();
      			request.setAttribute("errorMex","user: "+username+" email: "+email+" password: "+password+" conferma pass: "+confirmPassword);
      			//request.setAttribute("errorMex","in database "+l.size());
