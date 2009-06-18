@@ -40,3 +40,21 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 				</form>
 				</c:when>
 </c:choose>
+<c:choose>
+<c:when test="${user.type == 'admin'}">
+<br/><br/><br/>
+<b>Lista Utenti della Rubrica</b>
+<br/><b>Username/Mail/Type</b><br/><br/>
+<c:choose>
+			<c:when test="${lista_utenti == 'nessun contatto'}">
+				<c:out value='${lista_utenti}'/>
+			</c:when>
+			<c:otherwise>
+				<c:forEach	items="${lista_utenti}" var="utente">
+				 	<c:out value='${utente.userName}'/>&nbsp;<c:out value='${utente.mail}'/>&nbsp;
+				 	<c:out value='${utente.type}'/><br/>
+				 </c:forEach>
+			</c:otherwise>
+			</c:choose>
+</c:when>
+</c:choose>

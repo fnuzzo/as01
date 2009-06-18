@@ -107,6 +107,16 @@ public class Login extends HttpServlet {
 				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
 				
+				if(user.getType().equals("admin"))
+				{
+					List<User> lista_utenti = manager.allUser();
+					if (lista_utenti.isEmpty()){
+						request.setAttribute("lista_utenti", "nessun contatto");
+					}else{
+						request.getSession().setAttribute("lista_utenti", lista_utenti);
+					}
+				}
+				
 				//mi ricavo la lista dei contatti e la passo in una variabile di sessione
 				//al momento del login
 				Context contextContatto;
