@@ -30,8 +30,8 @@
 		<div id="top">
 			<div id="top_left">
 			<ul>
-				<li><a href=""><img src="template/home.jpg" alt="home" /></a></li>
-				<li><a href="Contacts">
+				<li><a href="Contacts?p=1"><img src="template/home.jpg" alt="home" /></a></li>
+				<li><a href="Contacts?p=2">
 						<img src="template/add_contact.jpg" alt="add contact"/>
 					</a>
 				</li>
@@ -88,13 +88,13 @@
 		</c:when>
 		<c:when test="${link_clicked == 'no' || link_clicked == null}">		
 			<center>
-			<h2>Visualizza la scheda dei tuoi contatti (1)</h2>
+			<h2>Visualizza la scheda dei tuoi contatti</h2>
 			<img src="template/web_contact.png"/>
 			</center>
 		</c:when>
  		<c:otherwise>
 		<center>
-			<h2>Visualizza la scheda dei tuoi contatti (2)</h2>
+			<h2>Visualizza la scheda dei tuoi contatti!</h2>
 			<img src="template/web_contact.png"/>
 		</center>
 		</c:otherwise> 
