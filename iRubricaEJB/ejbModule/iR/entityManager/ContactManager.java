@@ -98,6 +98,17 @@ public class ContactManager implements ContactManagerLocal {
 
 
 
+	public boolean removeContact(int id) {
+		// TODO Auto-generated method stub
+		Contact contact = findById (id);
+		if (contact != null){
+			em.remove(contact);
+			return true;
+		}else return false;
+		
+	}
+
+
 
 
 
