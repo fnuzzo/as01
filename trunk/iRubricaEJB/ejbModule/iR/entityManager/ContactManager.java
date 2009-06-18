@@ -67,7 +67,7 @@ public class ContactManager implements ContactManagerLocal {
 	public List<Contact> findByName(String name) {
 		Query qe = em.createNamedQuery("Contact.findByName");
 		qe.setParameter("name", name );
-		List<Contact> l =  qe.getResultList();
+		List <Contact> l =  qe.getResultList();
 		
 		return l;
 	}
