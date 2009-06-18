@@ -35,6 +35,10 @@ public class Registrazione extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String iduser = request.getParameter("iduser");
+		request.setAttribute("iduser", "modifica");
+		getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
+		
 	}
 
 	/**
@@ -42,6 +46,7 @@ public class Registrazione extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		
 		Context context;
 		UserManagerLocal manager= null;
@@ -57,7 +62,7 @@ public class Registrazione extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+			
 		String password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 		
@@ -92,13 +97,14 @@ public class Registrazione extends HttpServlet {
      			{
      				if(password.equals("")) password = old_password;
      				manager.updateUser(username, email, password);
-     				}
+     			}
      		}
      		if(iduser.equals("new")) getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
      		else 
      		{
      			User us = manager.findByUsername(username);
      			request.setAttribute("modifica_ok", "ok");
+     			request.setAttribute("iduser", null);
      			request.getSession().setAttribute("user", us);
      			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 
