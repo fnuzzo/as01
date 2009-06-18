@@ -25,6 +25,8 @@ public interface ContactManagerLocal {
 			
 		List<Contact> findByEmail (String email);	
 			
+		List<Contact> findByCombo (String name, String surname, String email, String tel_home);
+		
 		Contact findById(int value);
 		
 		boolean removeContact(int id);

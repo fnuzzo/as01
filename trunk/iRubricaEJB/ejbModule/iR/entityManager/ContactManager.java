@@ -38,23 +38,24 @@ public class ContactManager implements ContactManagerLocal {
 		
 			Contact ct = new Contact();
 					
-					ct.setName(name);
-					ct.setSurname(surname);
-					ct.setTel_home(tel_home);
+					ct.setName(name); //campo obbligatorio
+					ct.setSurname(surname); //campo obbligatorio
+					ct.setTel_home(tel_home); //campo obbligatorio
 					ct.setTel_office(tel_office);
-					ct.setAddress_home(address_home);
+					ct.setAddress_home(address_home); //campo obbligatorio
 					ct.setAddress_office(address_office);
 					ct.setFax(fax);
-					ct.setEmail(mail);
+					ct.setEmail(mail); //campo obbligatorio
 					ct.setInsertDate(insertDate);
 					ct.setNote(note);
-					ct.setIdCreatore(idCreatore);
+					ct.setIdCreatore(idCreatore); //lo dobbiamo inserire noi, SEMPRE!!
 					ct.setOther(other);
 					ct.setWeb(web);
-					ct.setCity(city);
-					ct.setState(state);
+					ct.setCity(city); //campo obbligatorio
+					ct.setState(state); //campo obbligatorio
 
-					em.persist(ct);	
+					em.persist(ct);
+
 		}
 
 	
@@ -66,7 +67,7 @@ public class ContactManager implements ContactManagerLocal {
 	public List<Contact> findByName(String name) {
 		Query qe = em.createNamedQuery("Contact.findByName");
 		qe.setParameter("name", name );
-		List <Contact> l =  qe.getResultList();
+		List<Contact> l =  qe.getResultList();
 		
 		return l;
 	}
@@ -106,6 +107,21 @@ public class ContactManager implements ContactManagerLocal {
 			return true;
 		}else return false;
 		
+	}
+
+
+
+	public List<Contact> findByCombo(String name, String surname,
+			String email, String tel_home) {
+		// TODO Auto-generated method stub
+		Query qe = em.createNamedQuery("Contact.findByCombo");
+		qe.setParameter("name",name );
+		qe.setParameter("surname",surname );
+		qe.setParameter("email",email );
+		qe.setParameter("tel_home",tel_home );
+		List <Contact> l = qe.getResultList();
+		
+		return l;
 	}
 
 

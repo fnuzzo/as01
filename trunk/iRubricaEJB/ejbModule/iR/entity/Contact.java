@@ -17,6 +17,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="Contact")
 @NamedQueries({
+				@NamedQuery(name = "Contact.findByCombo", query = "SELECT a FROM Contact a WHERE a.name = :name, a.surname = :surname, a.email = :email, a.tel_home = :tel_home"),
 				@NamedQuery(name = "Contact.findById", query = "SELECT a FROM Contact a WHERE a.id = :id"),
 				@NamedQuery(name = "Contact.findByName", query = "SELECT a FROM Contact a WHERE a.name = :name"),
 				@NamedQuery(name = "Contact.findBySurname", query = "SELECT a FROM Contact a WHERE a.surname = :surname"),
