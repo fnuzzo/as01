@@ -17,13 +17,13 @@ import javax.persistence.*;
 @Entity
 @Table(name="Contact")
 @NamedQueries({
-				@NamedQuery(name = "Contact.findByCombo", query = "SELECT a FROM Contact a WHERE a.name = :name, a.surname = :surname, a.email = :email, a.tel_home = :tel_home"),
 				@NamedQuery(name = "Contact.findById", query = "SELECT a FROM Contact a WHERE a.id = :id"),
 				@NamedQuery(name = "Contact.findByName", query = "SELECT a FROM Contact a WHERE a.name = :name"),
 				@NamedQuery(name = "Contact.findBySurname", query = "SELECT a FROM Contact a WHERE a.surname = :surname"),
 				@NamedQuery(name = "Contact.findByCity", query = "SELECT a FROM Contact a WHERE a.city = :city"),
 				@NamedQuery(name = "Contact.findByEmail", query = "SELECT a FROM Contact a WHERE a.email = :email"),
 				@NamedQuery(name = "Contact.findAll", query = "SELECT a FROM Contact a"),
+				@NamedQuery(name = "Contact.findByCombo", query = "SELECT a FROM Contact a WHERE a.name = :name AND a.surname = :surname AND a.email = :email AND a.tel_home = :tel_home")
 				})
 				
 public class Contact implements Serializable {
