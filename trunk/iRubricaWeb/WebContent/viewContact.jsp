@@ -74,8 +74,12 @@
 			<td bgcolor="#c9d7e0">Indirizzo ufficio:</td><td><c:out value='${contatto.address_office}'/></td></tr>
 		<tr><td bgcolor="#c9d7e0">Note:</td><td colspan="3"><c:out value='${contatto.note}'/></td></tr>
 		</table>
-		</center><br/>	
+		</center><br/>
+		<c:choose>
+		<c:when test="${user.type == 'super' || user.type == 'admin' || user.id == contatto.idCreatore}">	
 		<a href="ViewContact?op=edit&idcon=${contatto.id}"><img src="template/edit.jpg"/></a>
 		<a href="ViewContact?op=del&idcon=${contatto.id}"><img src="template/delete.jpg"/></a>
+		</c:when>
+		</c:choose>
     </c:otherwise>
 </c:choose>

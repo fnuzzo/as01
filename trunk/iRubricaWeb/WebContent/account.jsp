@@ -59,13 +59,13 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 				 	<td><c:out value='${utente.type}'/></td>
 				<c:choose>
 				<c:when test="${utente.type == 'inattesa'}">
-				<td>[attiva] - [elimina]</td>
+				<td><a href="Admin?act=attiva&username=${utente.userName}">[attiva]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
 				</c:when>
 				<c:when test="${utente.type == 'normale'}">
-				<td>[modifica stato] - [elimina]</td>
+				<td><a href="Admin?act=modifica&username=${utente.userName}&status=super">[rendi super]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
 				</c:when>
 				<c:when test="${utente.type == 'super'}">
-				<td>[modifica stato] - [elimina]</td>
+				<td><a href="Admin?act=modifica&username=${utente.userName}&status=normale">[rendi normale]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
 				</c:when>
 				</c:choose>
 				</tr>
