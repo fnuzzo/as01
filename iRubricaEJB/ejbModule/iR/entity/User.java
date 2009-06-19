@@ -15,6 +15,7 @@ import javax.persistence.*;
 				@NamedQuery(name = "User.findByUsername", query = "SELECT a FROM User a WHERE a.username = :username"),
 				@NamedQuery(name = "User.findAll", query = "SELECT a FROM User a"),
 				@NamedQuery(name = "User.updateUser", query = "UPDATE User a SET a.mail = :mail, a.passwd = :passwd WHERE a.username = :username"),
+				@NamedQuery(name = "User.updateUserType", query = "UPDATE User a SET a.type = :type WHERE a.username = :username"),
 				})
 
 
