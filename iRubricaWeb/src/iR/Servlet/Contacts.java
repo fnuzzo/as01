@@ -68,6 +68,9 @@ public class Contacts extends HttpServlet {
 	    String web = request.getParameter("web");
 	    String city = request.getParameter("city");
 	    String state = request.getParameter("state");
+	    int idCreatore = Integer.parseInt(request.getParameter("idCreatore"));
+	    
+	    
 	    
     	if (name.equals("") && surname.equals("") && mail.equals("") && phone_home.equals("") 
     			&& phone_office.equals("") && cell.equals("") && note.equals("") && address_home.equals("")
@@ -85,7 +88,7 @@ public class Contacts extends HttpServlet {
     		if (idcontact.equals("new")){
 									
 				Date insertDate = null;
-				Integer idCreatore = 1;
+				//Integer idCreatore = 1;
 			
 				//cerco un contatto con gli stessi campi (name,surname,mail,phone_home)
 				//del contatto che sto cercando di inserire
