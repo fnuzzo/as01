@@ -6,9 +6,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Contacts extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
+	@EJB ContactManagerLocal managerContatto;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -83,30 +83,22 @@ public class Contacts extends HttpServlet {
     		//quando ho inserito tutti i campi obbligatori
     	
     		if (idcontact.equals("new")){
-    			Context context;
-	    		ContactManagerLocal manager =null;
-	    		try{
-	    			context = new InitialContext();
-	    			manager = (ContactManagerLocal) context.lookup("iRubrica/ContactManager/local");
-				}catch (NamingException e ){
-					e.printStackTrace();				
-				}
 									
 				Date insertDate = null;
 				Integer idCreatore = 1;
 			
 				//cerco un contatto con gli stessi campi (name,surname,mail,phone_home)
 				//del contatto che sto cercando di inserire
-				List<Contact> utenti_esistenti = manager.findByCombo(name, surname, mail, phone_home);
+				List<Contact> utenti_esistenti = managerContatto.findByCombo(name, surname, mail, phone_home);
 				
 				if (utenti_esistenti.isEmpty()){
-					manager.addContact(name, surname, phone_home, phone_office, cell, 
+					managerContatto.addContact(name, surname, phone_home, phone_office, cell, 
 								address_home, address_office, fax, mail, insertDate, note, 
 								idCreatore, other, web, city, state);
 					request.setAttribute("msgok", "Aggiunto nuovo contatto!!!");
 				
 					//aggiorno la lista nella variabile di sessione appena aggiungo un contatto
-					List<Contact> lista = manager.ListAll();
+					List<Contact> lista = managerContatto.ListAll();
 					if (lista.isEmpty()){
 						request.getSession().setAttribute("lista", "nessun contatto");
 					}else{

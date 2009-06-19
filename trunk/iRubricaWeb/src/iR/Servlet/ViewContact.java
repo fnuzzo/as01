@@ -1,16 +1,16 @@
 package iR.Servlet;
 
 import iR.entity.Contact;
-import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
 
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
+//import javax.naming.Context;
+//import javax.naming.InitialContext;
+//import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ViewContact extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB ContactManagerLocal managerContatto;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,7 +43,7 @@ public class ViewContact extends HttpServlet {
 		String idcontatto = request.getParameter("idcon");
 
 		
-		Context contextContatto;
+/*		Context contextContatto;
 		ContactManagerLocal managerContatto =null;
 		try{
 			contextContatto = new InitialContext();
@@ -49,7 +51,7 @@ public class ViewContact extends HttpServlet {
 	
 		}catch (NamingException e){
 			e.printStackTrace();				
-		}
+		}*/
 			
 		
 		//mi ricavo il contatto dall'id
