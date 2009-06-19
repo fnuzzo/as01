@@ -47,6 +47,7 @@
 	<tr>
 		<td colspan="4">
 			<input type="hidden" name="idcontact" value="new"/>
+			<input type="hidden" name="idCreatore" value="${user.id}"/>
 			<input type="submit" value="Salva" name="salva"/>
 		</td>
 	</tr>
