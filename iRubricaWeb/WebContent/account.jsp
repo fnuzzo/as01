@@ -44,16 +44,33 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 <c:when test="${user.type == 'admin'}">
 <br/><br/><br/>
 <b>Lista Utenti della Rubrica</b>
-<br/><b>Username/Mail/Type</b><br/><br/>
+<br/>
+<table>
+<tr><td align="center"><b>Username</b></td><td align="center"><b>Mail</b></td><td align="center"><b>Type</b></td><td align="center">Azioni</td></tr>
 <c:choose>
 			<c:when test="${lista_utenti == 'nessun contatto'}">
 				<c:out value='${lista_utenti}'/>
 			</c:when>
 			<c:otherwise>
 				<c:forEach	items="${lista_utenti}" var="utente">
-				 	<c:out value='${utente.userName}'/>&nbsp;<c:out value='${utente.mail}'/>&nbsp;
-				 	<c:out value='${utente.type}'/><br/>
+				<tr>
+				 	<td><c:out value='${utente.userName}'/></td>
+					<td><c:out value='${utente.mail}'/></td>
+				 	<td><c:out value='${utente.type}'/></td>
+				<c:choose>
+				<c:when test="${utente.type == 'inattesa'}">
+				<td>[attiva] - [elimina]</td>
+				</c:when>
+				<c:when test="${utente.type == 'normale'}">
+				<td>[modifica stato] - [elimina]</td>
+				</c:when>
+				<c:when test="${utente.type == 'super'}">
+				<td>[modifica stato] - [elimina]</td>
+				</c:when>
+				</c:choose>
+				</tr>
 				 </c:forEach>
+				 </table>
 			</c:otherwise>
 			</c:choose>
 </c:when>
