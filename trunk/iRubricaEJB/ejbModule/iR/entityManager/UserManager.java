@@ -40,8 +40,16 @@ public class UserManager implements UserManagerLocal {
 		em.persist(us);
 	}
 
-	public void changeStatus(String username, String status) {
+	public void changeStatus(String username, String type) {
 		// TODO Auto-generated method stub
+		User us = findByUsername(username);
+		us.setType(type);
+		em.refresh(us);
+		
+		Query qe = em.createNamedQuery("User.updateUserType");
+		qe.setParameter("username", username );
+		qe.setParameter("type", type );
+		qe.executeUpdate();
 		
 	}
 
@@ -57,8 +65,8 @@ public class UserManager implements UserManagerLocal {
 			return false;
 	}
 
-	public void removeUser(String  user) {
-		User us = em.find(User.class, user);
+	public void removeUser(String  username) {
+		User us = findByUsername(username);
 		em.remove(us);
 	}
 
