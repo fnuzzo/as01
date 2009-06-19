@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sun.net.www.protocol.mailto.MailToURLConnection;
+
 
 
 
@@ -75,32 +77,40 @@ public class Login extends HttpServlet {
 
 		}else if (managerUser.auth(username, passwd)) {
 			
-				request.getSession().setAttribute("logged_user", "si");		
 				
 				User user = managerUser.findByUsername(username);
-				request.getSession().setAttribute("user", user);
-				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
-				
-				if(user.getType().equals("admin"))
+				if(user.getType().equals("inattesa"))
 				{
-					List<User> lista_utenti = managerUser.allUser();
-					if (lista_utenti.isEmpty()){
-						request.getSession().setAttribute("lista_utenti", "nessun contatto");
-					}else{
-						request.getSession().setAttribute("lista_utenti", lista_utenti);
+					request.setAttribute("mgerrore", "Il tuo account non è ancora stato attivato!");
+					getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
+				}
+				else	
+				{
+					request.getSession().setAttribute("logged_user", "si");		
+					request.getSession().setAttribute("user", user);
+					request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
+					
+					if(user.getType().equals("admin"))
+					{
+						List<User> lista_utenti = managerUser.allUser();
+						if (lista_utenti.isEmpty()){
+							request.getSession().setAttribute("lista_utenti", "nessun contatto");
+						}else{
+							request.getSession().setAttribute("lista_utenti", lista_utenti);
+						}
 					}
-				}
-				
-				//mi ricavo la lista dei contatti e la passo in una variabile di sessione
-				//alla jsp al momento del login
-				List<Contact> lista = managerContatto.ListAll();
-				if (lista.isEmpty()){
-					request.setAttribute("lista", "nessun contatto");
-				}else{
-					request.getSession().setAttribute("lista", lista);
-				}
+					
+					//mi ricavo la lista dei contatti e la passo in una variabile di sessione
+					//alla jsp al momento del login
+					List<Contact> lista = managerContatto.ListAll();
+					if (lista.isEmpty()){
+						request.setAttribute("lista", "nessun contatto");
+					}else{
+						request.getSession().setAttribute("lista", lista);
+					}
 				
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
+				}
 			}else{
 				request.setAttribute("mgerrore", "Username o password errate!");
 				getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
