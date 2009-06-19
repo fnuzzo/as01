@@ -13,6 +13,7 @@ import javax.persistence.Query;
 /**
  * Session Bean implementation class UserManager
  */
+
 @Stateless
 public class UserManager implements UserManagerLocal {
 

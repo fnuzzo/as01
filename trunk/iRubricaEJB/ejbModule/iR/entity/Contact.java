@@ -24,12 +24,18 @@ import javax.persistence.*;
 				@NamedQuery(name = "Contact.findByEmail", query = "SELECT a FROM Contact a WHERE a.email = :email"),
 				@NamedQuery(name = "Contact.findAll", query = "SELECT a FROM Contact a"),
 				@NamedQuery(name = "Contact.findByCombo", query = "SELECT a FROM Contact a WHERE a.name = :name AND a.surname = :surname AND a.email = :email AND a.tel_home = :tel_home")
-				})
+})
 				
 public class Contact implements Serializable {
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO )
 	@Column(name = "id", nullable = false)	
