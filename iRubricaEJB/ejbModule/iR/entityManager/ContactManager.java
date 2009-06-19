@@ -1,9 +1,7 @@
 package iR.entityManager;
 
 import iR.entity.Contact;
-import iR.entity.User;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -83,7 +81,7 @@ public class ContactManager implements ContactManagerLocal {
 
 	public List<Contact> ListAll() {
 		Query all =em.createQuery("from Contact order by surname");
-		List l = all.getResultList();
+		List<Contact> l = all.getResultList();
 		return l;
 	}
 
