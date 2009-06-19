@@ -8,10 +8,10 @@ import iR.entityManager.UserManagerLocal;
 
 import java.io.IOException;
 import java.util.List;
-//import java.io.PrintWriter;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
+//import javax.naming.Context;
+//import javax.naming.InitialContext;
+//import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +25,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB UserManagerLocal managerUser;
+	@EJB ContactManagerLocal managerContatto;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -55,21 +58,6 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//	HttpSession session = request.getSession(true);	
-		/*response.setContentType("text/html");
-	    PrintWriter out = response.getWriter();*/
-		//out.println("errore");
-		
-		Context context = null;
-		UserManagerLocal manager = null;
-		try {
-			context = new InitialContext();
-			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
-
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		request.getSession().setAttribute("link_clicked", "no");
 		
@@ -85,31 +73,17 @@ public class Login extends HttpServlet {
 			request.setAttribute("mgerrore","Username o password mancanti!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else if (manager.auth(username, passwd)) {
+		}else if (managerUser.auth(username, passwd)) {
 			
-/*				LoginStateLocal lsl = (LoginStateLocal)request.getSession().getAttribute("logged_user");
-			//	System.out.println(lsl);
-				  if (lsl==null){
-					   try{
-						   lsl = (LoginStateLocal)context.lookup("iRubrica/LoginState/local");
-					       request.getSession().setAttribute("logged_user",lsl);
-					   } catch (NamingException e)    {
-					       e.printStackTrace();
-					       throw new RuntimeException(e);
-					   }
-				  }
-				  lsl.login(username);*/
-
-				
 				request.getSession().setAttribute("logged_user", "si");		
 				
-				User user = manager.findByUsername(username);
+				User user = managerUser.findByUsername(username);
 				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("mgbenvenuto","Benvenuto/a " + username);
 				
 				if(user.getType().equals("admin"))
 				{
-					List<User> lista_utenti = manager.allUser();
+					List<User> lista_utenti = managerUser.allUser();
 					if (lista_utenti.isEmpty()){
 						request.getSession().setAttribute("lista_utenti", "nessun contatto");
 					}else{
@@ -118,17 +92,7 @@ public class Login extends HttpServlet {
 				}
 				
 				//mi ricavo la lista dei contatti e la passo in una variabile di sessione
-				//al momento del login
-				Context contextContatto;
-				ContactManagerLocal managerContatto  =null;
-				try{
-					contextContatto = new InitialContext();
-					managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
-			
-				}catch (NamingException e){
-					 e.printStackTrace();
-				}
-			
+				//alla jsp al momento del login
 				List<Contact> lista = managerContatto.ListAll();
 				if (lista.isEmpty()){
 					request.setAttribute("lista", "nessun contatto");

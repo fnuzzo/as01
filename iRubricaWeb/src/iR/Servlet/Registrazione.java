@@ -1,16 +1,16 @@
 package iR.Servlet;
 
 import iR.entity.User;
-import iR.entityManager.UserManager;
 import iR.entityManager.UserManagerLocal;
 
 
 import java.io.IOException;
 import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
+//import javax.naming.Context;
+//import javax.naming.InitialContext;
+//import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Registrazione extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@EJB UserManagerLocal managerUser;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -48,20 +50,22 @@ public class Registrazione extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		Context context;
-		UserManagerLocal manager= null;
+	
 		String iduser = request.getParameter("iduser");
 		String email= request.getParameter("mail");
 		String username= request.getParameter("username");
 		String old_password= request.getParameter("old_password");
+		
+/*		Context context;
+		UserManagerLocal manager= null;
 		try {
 			context = new InitialContext();
 			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
 			
-} catch (NamingException e) {
+		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 			
 		String password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
@@ -78,7 +82,7 @@ public class Registrazione extends HttpServlet {
      			if(iduser.equals("new")) request.setAttribute("username",username);
      			request.setAttribute("email",email);
      			request.setAttribute("errorMex","Le due password non coincidono!");		  
-     		}else if(manager.findByUsername(username) != null && iduser.equals("new")){
+     		}else if(managerUser.findByUsername(username) != null && iduser.equals("new")){
      			request.setAttribute("errorMex","UserName Gia' in uso!");
      		}else {
      			
@@ -88,9 +92,9 @@ public class Registrazione extends HttpServlet {
      			{
      			//Se l'utente si chiama admin lo faccio admin (per poter eseguire i test)
      				if(username.equals("admin"))
-     					manager.addUser(username, email, password, "admin");
-     				else manager.addUser(username, email, password, "inattesa");
-     			List<User> l= manager.allUser();
+     					managerUser.addUser(username, email, password, "admin");
+     				else managerUser.addUser(username, email, password, "inattesa");
+     			List<User> l= managerUser.allUser();
      			request.setAttribute("errorMex","user: "+username+" email: "+email+" password: "+password+" conferma pass: "+confirmPassword);
      			//request.setAttribute("errorMex","in database "+l.size());
      			User u = l.get(l.size()-1);
@@ -99,13 +103,13 @@ public class Registrazione extends HttpServlet {
      			else
      			{
      				if(password.equals("")) password = old_password;
-     				manager.updateUser(username, email, password);
+     				managerUser.updateUser(username, email, password);
      			}
      		}
      		if(iduser.equals("new")) getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
      		else 
      		{
-     			User us = manager.findByUsername(username);
+     			User us = managerUser.findByUsername(username);
      			request.setAttribute("modifica_ok", "ok");
      			request.setAttribute("iduser", null);
      			request.getSession().setAttribute("user", us);
