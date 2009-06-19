@@ -70,6 +70,7 @@ div#left {
 	position: absolute;
 	top: 128px;
 }
+div#lista { width: 220px; height: 350px; overflow:auto; }
 div#right { 
 	padding-left: 12px;
 	width: 690px; 

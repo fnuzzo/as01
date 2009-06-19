@@ -19,6 +19,11 @@
 		<tr><td>
 		<form id="menu_login" name="menu_login" action="" method="post">
 			<br/><span>Ricerca contatto:</span>
+			<select name="ricerca">   
+  			     <option value="perNome" selected>per nome</option>
+  			     <option value="perTelefono">per telefono</option>
+  			     <option value="perEmail">per email</option>
+  			</select>			
 			<input id="ricerca" type="text" size="15" name="ricerca_contatto"/>
 			<input type="submit" value="Cerca" />
 		</form>
@@ -49,9 +54,7 @@
 		</div>
 		<div id="left">
 			<center><h2>Lista contatti</h2></center>
-			<c:out value='${num}'/>
-			<!-- Esempio. Da importare la lista dal database -->
-			<!-- <a href="ViewContact">Pluto pluto</a> -->
+			<div id="lista">
 			<c:choose>
 			<c:when test="${lista == 'nessun contatto'}">
 				<c:out value='${lista}'/>
@@ -63,6 +66,7 @@
 				 </c:forEach>
 			</c:otherwise>
 			</c:choose>
+			</div>
 		</div>
 		<div id="right">
 		<c:choose>

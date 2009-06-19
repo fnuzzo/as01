@@ -111,7 +111,7 @@ public class Login extends HttpServlet {
 				{
 					List<User> lista_utenti = manager.allUser();
 					if (lista_utenti.isEmpty()){
-						request.setAttribute("lista_utenti", "nessun contatto");
+						request.getSession().setAttribute("lista_utenti", "nessun contatto");
 					}else{
 						request.getSession().setAttribute("lista_utenti", lista_utenti);
 					}
@@ -120,14 +120,15 @@ public class Login extends HttpServlet {
 				//mi ricavo la lista dei contatti e la passo in una variabile di sessione
 				//al momento del login
 				Context contextContatto;
-				ContactManagerLocal managerContatto =null;
+				ContactManagerLocal managerContatto  =null;
 				try{
 					contextContatto = new InitialContext();
 					managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
 			
 				}catch (NamingException e){
-					e.printStackTrace();				
+					 e.printStackTrace();
 				}
+			
 				List<Contact> lista = managerContatto.ListAll();
 				if (lista.isEmpty()){
 					request.setAttribute("lista", "nessun contatto");
