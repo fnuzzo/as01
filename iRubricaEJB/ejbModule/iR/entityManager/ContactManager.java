@@ -126,6 +126,17 @@ public class ContactManager implements ContactManagerLocal {
 
 
 
+	public void updateContact(int idContact, String name, String surname,
+			String tel_home, String tel_office, String mobile_tel,
+			String address_home, String address_office, String fax,
+			String mail, Date insertDate, String note, int idCreatore,
+			String other, String web, String city, String state) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 
 
 
