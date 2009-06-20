@@ -159,10 +159,11 @@ public class ContactManager implements ContactManagerLocal {
 		qe.setParameter("address_home", address_home);
 		qe.setParameter("address_office", address_office);
 		qe.setParameter("fax", fax);
-		qe.setParameter("mail", mail);
+		qe.setParameter("email", mail);
 		qe.setParameter("insertDate", insertDate);
 		qe.setParameter("note", note);
 		qe.setParameter("idCreatore", idCreatore);
+		qe.setParameter("id", idContact);
 		qe.setParameter("other", other);
 		qe.setParameter("web", web);
 		qe.setParameter("city", city);
