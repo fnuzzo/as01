@@ -81,7 +81,7 @@ public class Login extends HttpServlet {
 				User user = managerUser.findByUsername(username);
 				if(user.getType().equals("inattesa"))
 				{
-					request.setAttribute("mgerrore", "Il tuo account non è ancora stato attivato!");
+					request.setAttribute("mgerrore", "Il tuo account non √® ancora stato attivato!");
 					getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 				}
 				else	
@@ -104,7 +104,7 @@ public class Login extends HttpServlet {
 					//alla jsp al momento del login
 					List<Contact> lista = managerContatto.ListAll();
 					if (lista.isEmpty()){
-						request.setAttribute("lista", "nessun contatto");
+						request.getSession().setAttribute("lista", "nessun contatto");
 					}else{
 						request.getSession().setAttribute("lista", lista);
 					}
