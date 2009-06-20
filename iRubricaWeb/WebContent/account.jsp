@@ -42,36 +42,46 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 </c:choose>
 <c:choose>
 <c:when test="${user.type == 'admin'}">
-<br/><br/><br/>
-<b>Lista Utenti della Rubrica</b>
-<br/>
+<span id="titleListUser"><b>Lista Utenti della Rubrica</b><br/></span>
+<div id="listUser">
 <table>
-<tr><td align="center"><b>Username</b></td><td align="center"><b>Mail</b></td><td align="center"><b>Type</b></td><td align="center">Azioni</td></tr>
-<c:choose>
-			<c:when test="${lista_utenti == 'nessun contatto'}">
-				<c:out value='${lista_utenti}'/>
-			</c:when>
-			<c:otherwise>
-				<c:forEach	items="${lista_utenti}" var="utente">
-				<tr>
-				 	<td><c:out value='${utente.userName}'/></td>
-					<td><c:out value='${utente.mail}'/></td>
-				 	<td><c:out value='${utente.type}'/></td>
+<tr><td align="center"><b>Username</b></td>
+	<td align="center"><b>Mail</b></td>
+	<td align="center"><b>Type</b></td>
+	<td align="center"><b>Azioni</b></td></tr>
+	<c:choose>
+		<c:when test="${lista_utenti == 'nessun contatto'}">
+			<c:out value='${lista_utenti}'/>
+		</c:when>
+		<c:otherwise>
+			<c:forEach	items="${lista_utenti}" var="utente">
+			<tr>
+			 	<td><c:out value='${utente.userName}'/></td>
+				<td><c:out value='${utente.mail}'/></td>
+				<td><c:out value='${utente.type}'/></td>
 				<c:choose>
-				<c:when test="${utente.type == 'inattesa'}">
-				<td><a href="Admin?act=attiva&username=${utente.userName}">[attiva]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
-				</c:when>
-				<c:when test="${utente.type == 'normale'}">
-				<td><a href="Admin?act=modifica&username=${utente.userName}&status=super">[rendi super]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
-				</c:when>
-				<c:when test="${utente.type == 'super'}">
-				<td><a href="Admin?act=modifica&username=${utente.userName}&status=normale">[rendi normale]</a> - <a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
-				</c:when>
+					<c:when test="${utente.type == 'inattesa'}">
+						<td width="100">
+							<a href="Admin?act=attiva&username=${utente.userName}">[attiva]</a> 
+							<a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
+					</c:when>
+					<c:when test="${utente.type == 'normale'}">
+						<td><a href="Admin?act=modifica&username=${utente.userName}&status=super">[rendi super]</a>
+							<a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
+					</c:when>
+					<c:when test="${utente.type == 'super'}">
+						<td><a href="Admin?act=modifica&username=${utente.userName}&status=normale">[rendi normale]</a>
+							<a href="Admin?act=elimina&username=${utente.userName}">[elimina]</a></td>
+					</c:when>
+					<c:when test="${utente.type == 'admin'}">
+						<td>&nbsp;</td>
+					</c:when>
 				</c:choose>
-				</tr>
-				 </c:forEach>
-				 </table>
-			</c:otherwise>
-			</c:choose>
+			</tr>
+			</c:forEach>
+</table>
+</div>
+</c:otherwise>
+</c:choose>
 </c:when>
 </c:choose>
