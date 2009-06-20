@@ -1,6 +1,7 @@
 package iR.entityManager;
 
 import iR.entity.Contact;
+import iR.entity.User;
 
 import java.util.Date;
 import java.util.List;
@@ -130,6 +131,44 @@ public class ContactManager implements ContactManagerLocal {
 			String mail, Date insertDate, String note, int idCreatore,
 			String other, String web, String city, String state) {
 		// TODO Auto-generated method stub
+		
+		Contact con = findById(idContact);
+				con.setName (name);
+				con.setSurname (surname);
+				con.setTel_home(tel_home);
+				con.setTel_office(tel_office);
+				con.setMobile_tel(mobile_tel);
+				con.setAddress_home(address_home);
+				con.setAddress_office(address_office);
+				con.setFax(fax);
+				con.setEmail(mail);
+				con.setInsertDate(insertDate);
+				con.setNote(note);
+				con.setIdCreatore(idCreatore);
+				con.setOther(other);
+				con.setWeb(web);
+				con.setCity(city);
+				con.setState(state);
+		
+		Query qe = em.createNamedQuery("User.updateContact");
+		qe.setParameter("id", idContact);
+		qe.setParameter("name", name);
+		qe.setParameter("surname", surname);
+		qe.setParameter("tel_home", tel_home);
+		qe.setParameter("tel_office", tel_office);
+		qe.setParameter("mobile_tel", mobile_tel);
+		qe.setParameter("address_home", address_home);
+		qe.setParameter("address_office", address_office);
+		qe.setParameter("fax", fax);
+		qe.setParameter("mail", mail);
+		qe.setParameter("insertDate", insertDate);
+		qe.setParameter("note", note);
+		qe.setParameter("idCreatore", idCreatore);
+		qe.setParameter("other", other);
+		qe.setParameter("web", web);
+		qe.setParameter("city", city);
+		qe.setParameter("state", state);
+		qe.executeUpdate();
 		
 	}
 
