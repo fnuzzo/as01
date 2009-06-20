@@ -118,9 +118,9 @@ public class Contacts extends HttpServlet {
 	    		int idcontact_int = Integer.valueOf(idcontact).intValue();
 	    	   
 	    		//modifico un contatto gia esistente
-	    //		managerContatto.updateContact(idcontact_int, name, surname, phone_home, phone_office, cell, address_home, address_office, fax, mail, insertDate, note, idCreatore,	other, web, city, state);
+	    		managerContatto.updateContact(idcontact_int, name, surname, phone_home, phone_office, cell, address_home, address_office, fax, mail, insertDate, note, idCreatore,	other, web, city, state);
 	    		    				
-	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
+	    		request.setAttribute("msgok", "Dati contatto modificato con successo!");
 	    		request.getSession().setAttribute("link_clicked", "addOK");
 	    	}
 	    	
