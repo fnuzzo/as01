@@ -119,14 +119,25 @@ public class Contacts extends HttpServlet {
 	    	   
 	    		//modifico un contatto gia esistente
 	    		managerContatto.updateContact(idcontact_int, name, surname, phone_home, phone_office, cell, address_home, address_office, fax, mail, insertDate, note, idCreatore,	other, web, city, state);
-	    		    				
-	    		request.setAttribute("msgok", "Dati contatto modificato con successo!");
+	    		
+	    		request.setAttribute("msgok", "Dati di '"+name+" "+surname+"' sono stai modificato con successo!");
+	    		
+	    		//aggiorno la lista nella variabile di sessione appena aggiungo un contatto
+				List<Contact> lista = managerContatto.ListAll();
+				if (lista.isEmpty()){
+					request.getSession().setAttribute("lista", "nessun contatto");
+				}else{
+					request.getSession().setAttribute("lista", lista);
+				}		
+							    		
 	    		request.getSession().setAttribute("link_clicked", "addOK");
 	    	}
 	    	
 			
 	    }else{ 	//nel caso in cui non ho inserito tutti i campi obbligatori
 			request.setAttribute("idcontact", idcontact);
+			request.setAttribute("idCreatore", idCreatore);
+			request.setAttribute("insertDate", insertDate);
 			request.setAttribute("name", name);
 		    request.setAttribute("surname", surname);
 		    request.setAttribute("mail", mail);

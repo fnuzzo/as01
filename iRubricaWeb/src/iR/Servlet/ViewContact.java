@@ -74,7 +74,7 @@ public class ViewContact extends HttpServlet {
 					}else{
 						request.getSession().setAttribute("lista", lista);
 					}	
-					request.setAttribute("deleteOk", "Il contatto "+contatto.getName()+" "+contatto.getSurname()+" è stato eliminato!");
+					request.setAttribute("deleteOk", "Il contatto '"+contatto.getName()+" "+contatto.getSurname()+"' è stato eliminato!");
 				}else{
 					request.setAttribute("deleteErr", "Il contatto selezionato è gia stato cancellato o non esiste!");
 				}
