@@ -17,7 +17,7 @@
 		<table>
 		<tr><td></td></tr>
 		<tr><td>
-		<form id="menu_login" name="menu_login" action="" method="post">
+		<form id="menu_login" name="menu_login" action="Search" method="post">
 			<br/><span>Ricerca contatto:</span>
 			<select name="ricerca">   
   			     <option value="perNome" selected>per nome</option>
