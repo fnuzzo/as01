@@ -40,6 +40,8 @@
 			</tr>			
 			<tr><td colspan="4">
 				<input type="hidden" name="idcontact" value="${contatto.id}"/>
+				<input type="hidden" name="insertDate" value="${contatto.insertDate}"/>
+				<input type="hidden" name="idCreatore" value="${contatto.idCreatore}"/>
 				<input type="submit" name="salva" value="Salva modifiche"/>
 				<span id="errore">&nbsp;<c:out value="${msgError}"/></span>
 			</td></tr>
