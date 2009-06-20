@@ -150,8 +150,7 @@ public class ContactManager implements ContactManagerLocal {
 				con.setCity(city);
 				con.setState(state);
 		
-		Query qe = em.createNamedQuery("User.updateContact");
-		qe.setParameter("id", idContact);
+		Query qe = em.createNamedQuery("Contact.updateContact");
 		qe.setParameter("name", name);
 		qe.setParameter("surname", surname);
 		qe.setParameter("tel_home", tel_home);
