@@ -3,7 +3,10 @@ package iR.Servlet;
 import iR.entityManager.ContactManagerLocal;
 import iR.entity.Contact;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -51,7 +54,6 @@ public class Contacts extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			
-		String idcontact = request.getParameter("idcontact");
 		//rilevo i campi inseriti nel form di inserimento di un nuovo contatto
 		//Obbligatori: name, surname, almeno un tell, 
 		String name = request.getParameter("name");
@@ -68,11 +70,11 @@ public class Contacts extends HttpServlet {
 	    String web = request.getParameter("web");
 	    String city = request.getParameter("city");
 	    String state = request.getParameter("state");
+	    String idcontact = request.getParameter("idcontact");
 	    int idCreatore = Integer.parseInt(request.getParameter("idCreatore"));
+	    Date insertDate = null;
 	    
-	    
-	    
-    	if (name.equals("") && surname.equals("") && mail.equals("") && phone_home.equals("") 
+		if (name.equals("") && surname.equals("") && mail.equals("") && phone_home.equals("") 
     			&& phone_office.equals("") && cell.equals("") && note.equals("") && address_home.equals("")
     			&& address_office.equals("") && fax.equals("") && other.equals("") && web.equals("") 
     			&& city.equals("") && state.equals("")){
@@ -87,9 +89,6 @@ public class Contacts extends HttpServlet {
     	
     		if (idcontact.equals("new")){
 									
-				Date insertDate = null;
-				//Integer idCreatore = 1;
-			
 				//cerco un contatto con gli stessi campi (name,surname,mail,phone_home)
 				//del contatto che sto cercando di inserire
 				List<Contact> utenti_esistenti = managerContatto.findByCombo(name, surname, mail, phone_home);
@@ -115,6 +114,12 @@ public class Contacts extends HttpServlet {
 				}
 			
 	    	}else{
+	    		
+	    		int idcontact_int = Integer.valueOf(idcontact).intValue();
+	    	   
+	    		//modifico un contatto gia esistente
+	    //		managerContatto.updateContact(idcontact_int, name, surname, phone_home, phone_office, cell, address_home, address_office, fax, mail, insertDate, note, idCreatore,	other, web, city, state);
+	    		    				
 	    		request.setAttribute("msgok", "DA FAREEEE: Modificato contatto!!!");
 	    		request.getSession().setAttribute("link_clicked", "addOK");
 	    	}
