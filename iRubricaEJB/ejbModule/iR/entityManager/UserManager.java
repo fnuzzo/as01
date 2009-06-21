@@ -22,13 +22,9 @@ public class UserManager implements UserManagerLocal {
 	
     public UserManager() {}
 
-    
     List <User> l;
     
-    
-    
-    
-    
+
 	public void addUser(String name, String mail, String passwd, String type) {
 		User us = new User();
 		
@@ -69,11 +65,6 @@ public class UserManager implements UserManagerLocal {
 		User us = findByUsername(username);
 		em.remove(us);
 	}
-
-	
-	
-	
-	
 	
 	public void updateUser(String username, String mail, String passwd) {
 		// TODO Auto-generated method stub
@@ -86,12 +77,10 @@ public class UserManager implements UserManagerLocal {
 		qe.setParameter("mail",mail);
 		qe.setParameter("passwd", passwd );
 		qe.executeUpdate();
-		
-		
+	
 	}
 
-
-
+	@SuppressWarnings("unchecked")
 	public List <User>  allUser(){
 		Query qe = em.createNamedQuery("User.findAll");
 		l = qe.getResultList();
@@ -119,32 +108,12 @@ public class UserManager implements UserManagerLocal {
 		Query qe = em.createNamedQuery("User.findByUsername");
 		qe.setParameter("username", username );
 		try{
-			
-		 us = (User) qe.getSingleResult();
-		
+			us = (User) qe.getSingleResult();
 		}catch(NoResultException nre){
-			
 			us = null;
-			
 		}
-		
-		
 		return us;
 	}
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }
