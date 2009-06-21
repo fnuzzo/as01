@@ -56,22 +56,22 @@ public class Contacts extends HttpServlet {
 			
 		//rilevo i campi inseriti nel form di inserimento di un nuovo contatto
 		//Obbligatori: name, surname, almeno un tell, 
-		String name = request.getParameter("name");
-	    String surname = request.getParameter("surname");
-	    String mail = request.getParameter("mail");
-	    String phone_home = request.getParameter("phone_home");
-	    String phone_office = request.getParameter("phone_office");
-	    String cell = request.getParameter("cell");
-	    String note = request.getParameter("note");
-	    String address_home = request.getParameter("address_home");
-	    String address_office = request.getParameter("address_office");
-	    String fax = request.getParameter("fax");
-	    String other = request.getParameter("other");
-	    String web = request.getParameter("web");
-	    String city = request.getParameter("city");
-	    String state = request.getParameter("state");
-	    String idcontact = request.getParameter("idcontact");
-	    int idCreatore = Integer.parseInt(request.getParameter("idCreatore"));
+		String name = request.getParameter("name").trim();
+	    String surname = request.getParameter("surname").trim();
+	    String mail = request.getParameter("mail").trim();
+	    String phone_home = request.getParameter("phone_home").trim();
+	    String phone_office = request.getParameter("phone_office").trim();
+	    String cell = request.getParameter("cell").trim();
+	    String note = request.getParameter("note").trim();
+	    String address_home = request.getParameter("address_home").trim();
+	    String address_office = request.getParameter("address_office").trim();
+	    String fax = request.getParameter("fax").trim();
+	    String other = request.getParameter("other").trim();
+	    String web = request.getParameter("web").trim();
+	    String city = request.getParameter("city").trim();
+	    String state = request.getParameter("state").trim();
+	    String idcontact = request.getParameter("idcontact").trim();
+	    int idCreatore = Integer.parseInt(request.getParameter("idCreatore").trim());
 	    Date insertDate = null;
 	    
 	    Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
