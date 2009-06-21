@@ -42,18 +42,6 @@ public class ViewContact extends HttpServlet {
 		String ris = request.getParameter("op");
 		String idcontatto = request.getParameter("idcon");
 
-		
-/*		Context contextContatto;
-		ContactManagerLocal managerContatto =null;
-		try{
-			contextContatto = new InitialContext();
-			managerContatto = (ContactManagerLocal) contextContatto.lookup("iRubrica/ContactManager/local");
-	
-		}catch (NamingException e){
-			e.printStackTrace();				
-		}*/
-			
-		
 		//mi ricavo il contatto dall'id
 		//pero prima converto l'id che ho ricato con il get in un intero
 		int id = Integer.valueOf(idcontatto).intValue();

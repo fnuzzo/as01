@@ -53,7 +53,14 @@
 		</div>
 		</div>
 		<div id="left">
-			<center><h2>Lista contatti</h2></center>
+			
+			<c:choose>
+			<c:when test="${link_clicked=='search_result'}">
+				<center><h2>Risultato ricerca</h2></center>
+			</c:when>
+			<c:otherwise><center><h2>Lista contatti</h2></center></c:otherwise>
+			</c:choose>
+			
 			<div id="lista">
 			<c:choose>
 			<c:when test="${lista == 'nessun contatto'}">

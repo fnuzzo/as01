@@ -47,21 +47,19 @@ public class Search extends HttpServlet {
 		 
 		 if(ricerca.equals("perNome")){
 			 risultati_ricerca =  managerContatto.findByName(ricerca_contatto);
-		 }
-		 
-		 if(ricerca.equals("perTelefono")){
+			 risultati_ricerca.addAll(managerContatto.findBySurname(ricerca_contatto));
+			 
+		 }else if(ricerca.equals("perTelefono")){
 
-		 }
-		 
-		 if(ricerca.equals("perEmail")){
+		 }else if(ricerca.equals("perEmail")){
 			 risultati_ricerca =  managerContatto.findByEmail(ricerca_contatto);
 		 }
 		 
 		 if (risultati_ricerca.isEmpty()){
-				request.getSession().setAttribute("lista", "nessun contatto");
-			}else{
-				request.getSession().setAttribute("lista", risultati_ricerca);
-			}	
+			 request.getSession().setAttribute("lista", "nessun contatto");
+		 }else{
+			 request.getSession().setAttribute("lista", risultati_ricerca);
+		 }	
 		 request.getSession().setAttribute("link_clicked", "search_result");
 		 getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
