@@ -40,19 +40,19 @@ public class Search extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 String ricerca_contatto = request.getParameter("ricerca_contatto");
-		 String ricerca = request.getParameter("ricerca");
+		 String ricerca_contatto = request.getParameter("ricerca_contatto").trim();
+		 String ricerca = request.getParameter("ricerca").trim();
 		 
 		 List<Contact> risultati_ricerca = null;
 		 
 		 if(ricerca.equals("perNome")){
-			 risultati_ricerca =  managerContatto.findByName(ricerca_contatto);
-			 risultati_ricerca.addAll(managerContatto.findBySurname(ricerca_contatto));
-			 
+			 risultati_ricerca =  managerContatto.searchForName(ricerca_contatto);
+				 
 		 }else if(ricerca.equals("perTelefono")){
+			 risultati_ricerca =  managerContatto.searchForPhone(ricerca_contatto);
 
 		 }else if(ricerca.equals("perEmail")){
-			 risultati_ricerca =  managerContatto.findByEmail(ricerca_contatto);
+			 risultati_ricerca =  managerContatto.searchForEmail(ricerca_contatto);
 		 }
 		 
 		 if (risultati_ricerca.isEmpty()){
