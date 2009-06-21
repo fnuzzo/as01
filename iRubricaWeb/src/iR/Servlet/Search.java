@@ -43,6 +43,9 @@ public class Search extends HttpServlet {
 		 String ricerca_contatto = request.getParameter("ricerca_contatto").trim();
 		 String ricerca = request.getParameter("ricerca").trim();
 		 
+		 if (ricerca_contatto.length() >= 3){
+			 
+		
 		 List<Contact> risultati_ricerca = null;
 		 
 		 if(ricerca.equals("perNome")){
@@ -61,6 +64,11 @@ public class Search extends HttpServlet {
 			 request.getSession().setAttribute("lista", risultati_ricerca);
 		 }	
 		 request.getSession().setAttribute("link_clicked", "search_result");
+		 
+		 
+		 }else {
+			 request.getSession().setAttribute("link_clicked", "Errore ricerca");
+		 }
 		 getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 	}
 	

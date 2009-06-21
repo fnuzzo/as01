@@ -9,9 +9,6 @@ import iR.entityManager.UserManagerLocal;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
-//import javax.naming.Context;
-//import javax.naming.InitialContext;
-//import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +42,7 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		request.getSession().setAttribute("op", request.getParameter("id"));
 		//entra qui quando dalla pagina contact.jsp faccio logout
 		//setto logged_user a no e faccio redirect alla enter
 		request.getSession().setAttribute("link_clicked", "no");
@@ -113,9 +111,7 @@ public class Login extends HttpServlet {
 				}
 			}else{
 				request.setAttribute("mgerrore", "Username o password errate!");
-				getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
-
-			
+				getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);			
 		}
 			
 	}
