@@ -4,21 +4,21 @@
 		<center>
 		<form id="mod_contact" name="mod_contact" action="Contacts" method="post">
 		<table border="0" cellpadding="0" width="600px">
-			<tr><td><label for="name">Nome:</label></td>
+			<tr><td><label for="name">Nome*:</label></td>
 				<td><input maxlength="15" type="text" size="15" name="name" value="${contatto.name}"/></td>
 				<td rowspan="4" colspan="2" align="center"><img src="template/male.jpg"/></td>
 			</tr>
-			<tr><td><label for="surname">Cognome:</label></td>
+			<tr><td><label for="surname">Cognome*:</label></td>
 				<td><input maxlength="15" type="text" size="15" name="surname" value="${contatto.surname}"/></td></tr>
-			<tr><td><label for="mail">E-mail:</label></td>
+			<tr><td><label for="mail">E-mail*:</label></td>
 				<td><input maxlength="20" type="text" size="15" name="mail" value='${contatto.email}'/></td></tr>
 			<tr><td><label for="web">Web:</label></td>
-				<td ><input maxlength="20" type="text" size="15" name="web" value='${contatto.web}'/></td></tr>
-			<tr><td><label for="city">Citta:</label></td>
+				<td ><input maxlength="40" type="text" size="15" name="web" value='${contatto.web}'/></td></tr>
+			<tr><td><label for="city">Citta*:</label></td>
 				<td><input maxlength="15" type="text" size="15" name="city" value='${contatto.city}'/></td>
-				<td><label for="state">Stato:</label></td>
+				<td><label for="state">Stato*:</label></td>
 				<td ><input maxlength="15" type="text" size="15" name="state" value='${contatto.state}'/></td></tr>
-			<tr><td><label for="phone_home">Telefono casa:</label></td>
+			<tr><td><label for="phone_home">Telefono casa*:</label></td>
 				<td><input maxlength="11" type="text" size="15" name="phone_home" value='${contatto.tel_home}'/></td>
 				<td><label for="phone_office">Telefono ufficio:</label></td>
 				<td><input maxlength="11" type="text" size="15" name="phone_office" value='${contatto.tel_office}'/></td>
@@ -28,13 +28,16 @@
 				<td><label for="fax">Fax:</label></td>
 				<td><input maxlength="11" type="text" size="15" name="fax" value='${contatto.fax}'/></td></tr>
 
-			<tr><td><label for="address_home">Indirizzo casa:</label></td>
+			<tr><td><label for="address_home">Indirizzo casa*:</label></td>
 				<td><input maxlength="25" type="text" size="15" name="address_home" value='${contatto.address_home}'/></td>
 				<td><label for="address_office">Indirizzo ufficio:</label></td>
 				<td><input maxlength="25" type="text" size="15" name="address_office" value='${contatto.address_office}'/></td>
 			</tr>
 			<tr><td valign="top"><label for="other">Altro:</label></td>
-				<td valign="top"><input maxlength="20" type="text" size="15" name="other" value='${contatto.other}'/></td>
+				<td valign="top">
+					<input maxlength="20" type="text" size="15" name="other" value='${contatto.other}'/>
+					<br/><br/><br/>* = campi obbligatori
+				</td>
 				<td valign="top"><label for="note">Note:</label></td>
 				<td><textarea name="note" rows="5" cols="25"><c:out value='${contatto.note}'/></textarea></td>
 			</tr>			

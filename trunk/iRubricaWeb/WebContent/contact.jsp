@@ -46,6 +46,10 @@
 			</div>
 			<div id="top_right">
 			<ul>
+				<li><span id="errore">
+						<c:if test="${link_clicked == 'Errore ricerca'}">
+							Inserire almeno 3 caratteri nella ricerca
+						</c:if></span></li>
 				<li><a href="Account"><img src="template/account.jpg" alt="setting account"/></a></li> 
 				<!-- logged_user mi serve come variabile di sessione per vedere l'utente è logato -->
 				<li><a href="Login"><img src="template/logout.jpg" alt="logout"/></a></li>
@@ -56,7 +60,9 @@
 			
 			<c:choose>
 			<c:when test="${link_clicked=='search_result'}">
-				<center><h2>Risultato ricerca</h2></center>
+				<center><h2>Risultato ricerca</h2>
+					<a href="Contacts?p=1">[Rimuovi filtro]</a><br/><br/>
+				</center>
 			</c:when>
 			<c:otherwise><center><h2>Lista contatti</h2></center></c:otherwise>
 			</c:choose>

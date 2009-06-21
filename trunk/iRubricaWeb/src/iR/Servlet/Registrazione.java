@@ -56,17 +56,7 @@ public class Registrazione extends HttpServlet {
 		String username= request.getParameter("username");
 		String old_password= request.getParameter("old_password");
 		
-/*		Context context;
-		UserManagerLocal manager= null;
-		try {
-			context = new InitialContext();
-			manager = (UserManagerLocal) context.lookup("iRubrica/UserManager/local");
-			
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-			
+		
 		String password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 		
@@ -94,14 +84,13 @@ public class Registrazione extends HttpServlet {
      				if(username.equals("admin"))
      					managerUser.addUser(username, email, password, "admin");
      				else managerUser.addUser(username, email, password, "inattesa");
-     			List<User> l= managerUser.allUser();
-     			request.setAttribute("errorMex","user: "+username+" email: "+email+" password: "+password+" conferma pass: "+confirmPassword);
-     			//request.setAttribute("errorMex","in database "+l.size());
-     			User u = l.get(l.size()-1);
-     			request.setAttribute("errorMex","id "+u.getId());
-     			}
-     			else
-     			{
+     			//List<User> l= managerUser.allUser();
+     			//User u = l.get(l.size()-1);
+     			//request.setAttribute("errorMex","id "+u.getId());
+     			request.setAttribute("errorMex", null);
+     			request.setAttribute("okMex", "Utente in attesa di autenticazione!");
+     			
+     			}else{
      				if(password.equals("")) password = old_password;
      				managerUser.updateUser(username, email, password);
      			}

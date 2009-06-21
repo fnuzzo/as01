@@ -41,8 +41,11 @@ div#container{
 
 }
 div#container span {color: white;}
+div#container a {text-decoration: none; color:white;}
+div#container a:hover {text-decoration: underline; color: white;}
+
 span#errore { color: maroon; font-weight: bold; }
-span#ok { background-color:#c9d7e0;}
+span#ok { background-color:#c9d7e0; font-weight: bold;}
 div#logo{ width: 350px; float:left;}
 div#form{ width: 500px; float:right; text-align: right; }
 div#form table { float:right; margin-right:10px; }
@@ -92,3 +95,4 @@ div#right {
 	top: 128px;
 	left: 245px;
 }
+

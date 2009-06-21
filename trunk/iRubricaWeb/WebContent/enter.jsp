@@ -13,7 +13,7 @@
 		<div id="logo"><img src="template/irubrica.jpg" alt="iRubrica"/></div>
 		<div id="form">	
 		<br/><table>
-		<tr><td><span>Hai dimenticato la password?</span></td></tr>
+		<tr><td><span><a href="Login?id=0">Hai dimenticato la password?</a></span></td></tr>
 		<tr><td>
 		<form id="menu_login" name="menu_login" action="Login" method="post">
 			<span>User:</span>
@@ -27,21 +27,39 @@
    	    </div>
 	</div>
 	<div id="content"><br/>
-			<table align="center">
-			<tr>
-				<td width="550px" rowspan="2">
-					<br/>
-					<img src="template/testo.jpg"/>
-					<img src="template/share.jpg"/>
-				</td>
-				<td width="350px" height="50px">
-				 	<span id="errore">
-				 		<c:out value='${mgerrore}'/>
-					</span> 
-				</td>
-			</tr>
-			<tr>
-				<td>
+		<table align="center">
+		<tr>
+			<td width="550px" rowspan="3">
+				<br/><img src="template/testo.jpg"/><img src="template/share.jpg"/>
+			</td>
+			<td width="350px" height="50px">
+			 	<span id="errore"><c:out value='${mgerrore}'/></span> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<c:choose>
+				<c:when test="${op=='0'}">	
+				<img src="template/recupera.jpg"/>
+				<form id="menu_recupera" name="menu_recupera" action="" method="post">
+				<table>
+					<tr>
+						<td><label for="username">Username:</label></td>
+						<td><input id="username" type="text" name="username"/></td>
+					</tr>	
+					<tr>
+						<td colspan="2"><br/>
+						<input type="submit" name="recupera" value="Recupera password"/>
+						</td>
+					</tr>
+					<tr><td colspan="2">
+						<br/><br/>
+						<h2>Torna alla <a href="Login">Registrazione</a></h2>
+					</td><tr>
+				</table>
+				</form>
+				</c:when>
+				<c:otherwise>
 				<img src="template/reg.jpg"/>
 				<form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
 					<table>
@@ -64,17 +82,28 @@
 					<tr>
 					<td colspan="2"><br/>
 					<input type="hidden" name="iduser" value="new"/>
-					<input type="submit" value="registrati"/></td>
+					<input type="submit" name="registrati" value="Registrati"/></td>
 					</tr>
 					</table>		
 				</form>
-				<span id="errore">
-				 		<c:out value='${errorMex}'/>
-					</span> 
-				</td>
-			</tr>
-			</table> 
-			
+				
+				</c:otherwise>
+				</c:choose>
+			</td>
+		</tr>
+		<tr>
+			<td height="100px" valign="top">
+			<c:choose>
+				<c:when test="${errorMex == null}">
+					<span id="ok"><c:out value='${okMex}'/></span> 	
+				</c:when>
+				<c:otherwise>
+					<span id="errore"><c:out value='${errorMex}'/></span>
+				</c:otherwise>
+			</c:choose>
+			</td>
+		</tr>
+		</table> 
 	</div>
 </div>
 </body>

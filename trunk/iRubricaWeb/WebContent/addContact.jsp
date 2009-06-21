@@ -12,7 +12,7 @@
 		<td><label for="mail">E-mail*:</label></td>
 		<td><input maxlength="20" type="text" size="15" name="mail" value="${mail}"/></td>
 		<td><label for="web">Web:</label></td>
-		<td><input maxlength="20" type="text" size="15" name="web" value="${web}"/></td>
+		<td><input maxlength="40" type="text" size="15" name="web" value="${web}"/></td>
 	</tr>
 	<tr>
 		<td><label for="phone_home">Telefono casa*:</label></td>
