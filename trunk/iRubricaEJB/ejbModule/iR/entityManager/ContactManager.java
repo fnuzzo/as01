@@ -1,15 +1,10 @@
 package iR.entityManager;
 
 import iR.entity.Contact;
-import iR.entity.User;
-
 import java.util.Date;
 import java.util.List;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -18,6 +13,7 @@ import javax.persistence.Query;
  * Session Bean implementation class ContactManager
  */
 
+@SuppressWarnings("unchecked")
 @Stateless
 public class ContactManager implements ContactManagerLocal {
 	
@@ -71,6 +67,7 @@ public class ContactManager implements ContactManagerLocal {
 		return l;
 	}
 	
+
 	public List<Contact> findBySurname(String surname) {
 		Query qe = em.createNamedQuery("Contact.findBySurname");
 		qe.setParameter("surname",surname );
@@ -85,7 +82,6 @@ public class ContactManager implements ContactManagerLocal {
 		List<Contact> l = all.getResultList();
 		return l;
 	}
-
 
 
 	public List<Contact> findByEmail(String email) {
@@ -109,7 +105,7 @@ public class ContactManager implements ContactManagerLocal {
 	}
 
 
-
+	
 	public List<Contact> findByCombo(String name, String surname,
 			String email, String tel_home) {
 		// TODO Auto-generated method stub
@@ -119,10 +115,8 @@ public class ContactManager implements ContactManagerLocal {
 		qe.setParameter("email",email );
 		qe.setParameter("tel_home",tel_home );
 		List <Contact> l = qe.getResultList();
-		
 		return l;
 	}
-
 
 
 	public void updateContact(int idContact, String name, String surname,
@@ -171,21 +165,6 @@ public class ContactManager implements ContactManagerLocal {
 		qe.executeUpdate();
 		
 	}
-
-
-
-
-
-
-	
-	
-	
-	
-	
-
-
-	
-
 
 
 }
