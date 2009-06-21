@@ -21,8 +21,9 @@ import javax.persistence.*;
 				@NamedQuery(name = "Contact.findAll", query = "SELECT a FROM Contact a"),
 				@NamedQuery(name = "Contact.findByCombo", query = "SELECT a FROM Contact a WHERE a.name = :name AND a.surname = :surname AND a.email = :email AND a.tel_home = :tel_home"),
 				@NamedQuery(name = "Contact.updateContact", query = "UPDATE Contact a SET a.name = :name, a.surname = :surname, a.tel_home = :tel_home, a.tel_office = :tel_office, a.mobile_tel = :mobile_tel, a.address_home = :address_home, a.address_office = :address_office, a.fax = :fax, a.insertDate = :insertDate, a.note = :note, a.idCreatore = :idCreatore, a.other = :other, a.web = :web, a.email = :email,a.city = :city,a.state = :state WHERE a.id = :id"),
-				
-
+				@NamedQuery(name = "Contact.searchForName", query = "SELECT a FROM Contact a WHERE a.name LIKE :name OR a.surname LIKE :surname"),
+				@NamedQuery(name = "Contact.searchForEmail", query = "SELECT a FROM Contact a WHERE a.email LIKE :email"),
+				@NamedQuery(name = "Contact.searchForPhone", query = "SELECT a FROM Contact a WHERE a.tel_home LIKE :tel_home OR a.tel_office LIKE :tel_office OR a.mobile_tel LIKE :mobile_tel OR a.fax LIKE :fax"),
 })
 				
 public class Contact implements Serializable {
