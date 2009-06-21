@@ -35,6 +35,12 @@ public interface ContactManagerLocal {
 			String address_home, String address_office, String fax,String mail, Date insertDate, String note, 
 			int idCreatore, String other, String web,String city, String state);
 			
-			
+		//ricerca per name o surname
+		List<Contact> searchForName (String name);
+		
+		List<Contact> searchForEmail (String email);
+		
+		//ricerca per phone_home, phone_office, mobile_phone o fax
+		List<Contact> searchForPhone (String phone);
 
 }

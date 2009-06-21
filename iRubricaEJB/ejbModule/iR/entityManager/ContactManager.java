@@ -167,4 +167,41 @@ public class ContactManager implements ContactManagerLocal {
 	}
 
 
+
+	//ricerca per nome o per cognome
+	public List<Contact> searchForName(String name) {
+		// TODO Auto-generated method stub
+		Query qe = em.createNamedQuery("Contact.searchForName");
+		qe.setParameter("name", '%' + name + '%' );
+		qe.setParameter("surname", '%' + name + '%' );
+		List <Contact> l =  qe.getResultList();
+		
+		return l;	}
+
+
+
+	public List<Contact> searchForEmail(String email) {
+		// TODO Auto-generated method stub
+		Query qe = em.createNamedQuery("Contact.searchForEmail");
+		qe.setParameter("email", '%' + email + '%' );
+		List <Contact> l =  qe.getResultList();
+		
+		return l;
+	}
+
+
+	//ricerca per phone_home, phone_office, mobile_phone o fax
+	public List<Contact> searchForPhone(String phone) {
+		// TODO Auto-generated method stub
+		Query qe = em.createNamedQuery("Contact.searchForPhone");
+		qe.setParameter("tel_home", phone + '%');
+		qe.setParameter("tel_office", phone + '%');
+		qe.setParameter("mobile_tel", phone + '%');
+		qe.setParameter("fax", phone + '%');
+		List <Contact> l =  qe.getResultList();
+		
+		return l;	
+	}
+
+
 }
