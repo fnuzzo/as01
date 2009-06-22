@@ -1,6 +1,9 @@
 package iR.entityManager;
 
 import iR.entity.Contact;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -205,6 +208,8 @@ public class ContactManager implements ContactManagerLocal {
 		
 		return l;	
 	}
+	
+
 
 
 }

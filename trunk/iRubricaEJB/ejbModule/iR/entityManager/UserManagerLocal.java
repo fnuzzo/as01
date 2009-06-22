@@ -27,5 +27,7 @@ public interface UserManagerLocal {
 	
 	User findByUsername(String username);
 	
+	public String codifica (String origin);
+	
 	
 }
