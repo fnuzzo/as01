@@ -1,6 +1,7 @@
 package iR.Servlet;
 
 import iR.entity.Contact;
+import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
 
 
@@ -49,9 +50,13 @@ public class ViewContact extends HttpServlet {
 
 		//ris può assumere i valori "edit" e "del"
 		if (ris != null){
+			User user = (User) request.getSession().getAttribute("user");
+		
 			request.setAttribute("operazione",ris);	
-			if (ris.equals("del") && idcontatto != null){
+			if (ris.equals("del") && idcontatto != null && (user.getType().equals("admin") || user.getType().equals("super") || user.getId() == contatto.getIdCreatore())){
 				//elimino il contatto 
+				
+				
 				boolean canc = managerContatto.removeContact(id);
 				
 				if (canc){
@@ -64,7 +69,7 @@ public class ViewContact extends HttpServlet {
 					}	
 					request.setAttribute("deleteOk", "Il contatto '"+contatto.getName()+" "+contatto.getSurname()+"' è stato eliminato!");
 				}else{
-					request.setAttribute("deleteErr", "Il contatto selezionato è gia stato cancellato o non esiste!");
+					request.setAttribute("deleteErr", "Il contatto selezionato e' gia stato cancellato o non esiste!");
 				}
 				
 			}
@@ -81,7 +86,6 @@ public class ViewContact extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		
 	}
 
