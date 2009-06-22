@@ -1,15 +1,15 @@
 <c:choose>
 <c:when test="${iduser ==  null }">
-<c:if test="${modifica_ok == 'ok'}">
-<span id="ok">Utente modificato con successo.</span>
-</c:if>
-<br/><br/>
 Dati utente <b><c:out value="${user.userName}"/></b><br/>
 <br/>
 Indirizzo e-mail: <b><c:out value="${user.mail}"/></b><br/>
 Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 <a href="Registrazione?iduser=modifica">Modifica i tuoi dati</a><br/>
 <c:out value="${iduser}"/>
+<br/>
+<c:if test="${modifica_ok == 'ok'}">
+<span id="ok">Utente modificato con successo.</span>
+</c:if>
 </c:when>
 <c:when test="${iduser == 'modifica'}">
 <form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
