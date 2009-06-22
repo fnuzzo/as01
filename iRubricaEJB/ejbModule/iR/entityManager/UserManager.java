@@ -36,7 +36,6 @@ public class UserManager implements UserManagerLocal {
 	public void addUser(String name, String mail, String passwd, String type) {
 		User us = new User();
 		
-		passwd = codifica(passwd);
 		us.setUserName(name);
 		us.setMail(mail);
 		us.setPasswd(passwd);
@@ -122,30 +121,5 @@ public class UserManager implements UserManagerLocal {
 		}
 		return us;
 	}
-	
-	//Codifica con una funzione hash one-way la stringa in input
-	public String codifica (String origin){
-		sun.misc.BASE64Encoder encoder = new sun.misc.BASE64Encoder();
-		@SuppressWarnings("unused")
-		String encoded;
-		byte[] temp=null;
-		try {
-			if (md==null){
-				md = MessageDigest.getInstance("MD5");
-			}
-			md.reset();
-			//md.update(origin.getBytes());
-			temp = md.digest(origin.getBytes());
-		
-			//	md.reset();
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return encoder.encode(temp);
-		
-		
-	}
-    
     
 }
