@@ -5,6 +5,8 @@ import iR.entity.Contact;
 import iR.entity.User;
 import iR.entityManager.ContactManagerLocal;
 import iR.entityManager.UserManagerLocal;
+import iR.util.DesEncrypter;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -14,7 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sun.net.www.protocol.mailto.MailToURLConnection;
+import javax.crypto.*;
+import java.security.*; 
 
 
 
@@ -59,25 +62,33 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+
+
+		
 		request.getSession().setAttribute("link_clicked", "no");
 		
 	    String username = request.getParameter("username_login").trim();
 	    String passwd = request.getParameter("pass_login").trim();
 	    
-	    passwd = managerUser.codifica(passwd);
+	    String encrypted_passwd = null;
+		try {
+	        DesEncrypter encrypter = new DesEncrypter();
+	        encrypted_passwd = encrypter.encrypt(passwd);
+	    } catch (Exception e) {
+	    }
+	 //   passwd = managerUser.codifica(passwd);
     
 	    request.getSession().setAttribute("logged_user", "no");
 	    if (username==null ||  passwd==null ){
 			request.setAttribute("mgerrore","Errore ricezione dati!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else if (username.compareTo("")==0 || passwd.compareTo("")==0) {
+		}else if (username.equals("") || passwd.equals("")) {
 			request.setAttribute("mgerrore","Username o password mancanti!");
 			getServletContext().getRequestDispatcher("/enter.jsp").forward(request, response);
 
-		}else if (managerUser.auth(username, passwd)) {
-			
-				
+		}else if (managerUser.auth(username, encrypted_passwd)) {
+							
 				User user = managerUser.findByUsername(username);
 				if(user.getType().equals("inattesa"))
 				{
