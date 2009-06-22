@@ -4,14 +4,13 @@ Dati utente <b><c:out value="${user.userName}"/></b><br/>
 <br/>
 Indirizzo e-mail: <b><c:out value="${user.mail}"/></b><br/>
 Tipologia utente: <c:out value="${user.type}"/><br/><br/>
-<a href="Registrazione?iduser=modifica">Modifica i tuoi dati</a><br/>
+<a href="Registrazione?idmod=1">Modifica mail</a><br/>
+<a href="Registrazione?idmod=2">Modifica password</a><br/>
 <c:out value="${iduser}"/>
 <br/>
-<c:if test="${modifica_ok == 'ok'}">
-<span id="ok">Utente modificato con successo.</span>
-</c:if>
+<span id="ok"><c:out value="${modifica_ok}"/></span>
 </c:when>
-<c:when test="${iduser == 'modifica'}">
+<c:when test="${iduser == 'modifica_mail'}">
 <form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
 <table>
 	<tr>
@@ -19,20 +18,34 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 			<input id="mail" type="text" name="mail" value="${user.mail}"/></td>
 	</tr>
 	<tr>
-		<td><label for="username">Nuova Password:</label><br/>
-			<input id="username" type="password" name="password1" value=""/></td>
+		<td colspan="2">
+			<input type="hidden" name="iduser" value="mod_mail"/>
+			<input type="hidden" name="username" value="${user.userName}"/>
+			<br/><input type="submit" value="modifica"/><br/>
+			<br/><span id="errore"><c:out value="${errorMex}"/></span>
+		</td>
+	</tr>
+</table>		
+</form>
+</c:when>
+<c:when test="${iduser == 'modifica_pass'}">
+<form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
+<table>
+<tr>
+		<td><label for="old_password">Vecchia Password:</label><br/>
+			<input type="text" name="old_password" /></td>
+	</tr>
+<tr>
+		<td><label for="password1">Nuova Password:</label><br/>
+			<input type="password" name="password1" value=""/></td>
 	</tr>
 	<tr>
-		<td><label for="password1">Conferma Nuova Password:</label><br/>
-		 	<input id="password1" type="password" name="password2"/></td>
-	</tr>
-	<tr>
-		<td><label for="password2">Vecchia Password:</label><br/>
-			<input id="password2" type="text" name="old_password" value="${user.passwd}"/></td>
+		<td><label for="password2">Conferma Nuova Password:</label><br/>
+		 	<input type="password" name="password2"/></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<input type="hidden" name="iduser" value="mod"/>
+			<input type="hidden" name="iduser" value="mod_pass"/>
 			<input type="hidden" name="username" value="${user.userName}"/>
 			<br/><input type="submit" value="modifica"/><br/>
 			<br/><span id="errore"><c:out value="${errorMex}"/></span>

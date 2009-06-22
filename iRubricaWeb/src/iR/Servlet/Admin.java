@@ -51,7 +51,7 @@ public class Admin extends HttpServlet {
 		{
 			managerUser.removeUser(username);
 			request.setAttribute("ok_modifica","elimina");
-			InvioMail.invioEmail(email, "Eliminazione", username+"Sei fuori dal gruppo.");
+			InvioMail.invioEmail(email, "Eliminazione", username+" sei fuori dal gruppo.");
 		}
 		if(act.equals("modifica"))
 		{
