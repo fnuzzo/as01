@@ -136,12 +136,14 @@ public class UserManager implements UserManagerLocal {
 			md.reset();
 			//md.update(origin.getBytes());
 			temp = md.digest(origin.getBytes());
+		
 			//	md.reset();
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return encoder.encode(temp);
+		
 		
 	}
     
