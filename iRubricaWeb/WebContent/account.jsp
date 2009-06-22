@@ -16,33 +16,34 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 <form id="menu_registrazione" name="menu_registrazione" action="Registrazione" method="post">
 <table>
 	<tr>
-		<td><label for="mail">E-mail:</label></td>
-		<td><input id="mail" type="text" name="mail" value="${user.mail}"/></td>
+		<td><label for="mail">E-mail:</label><br/>
+			<input id="mail" type="text" name="mail" value="${user.mail}"/></td>
 	</tr>
 	<tr>
-		<td><label for="username">Nuova Password:</label></td>
-		<td><input id="username" type="password" name="password1" value=""/></td>
+		<td><label for="username">Nuova Password:</label><br/>
+			<input id="username" type="password" name="password1" value=""/></td>
 	</tr>
 	<tr>
-		<td><label for="password1">Conferma Nuova Password:</label></td>
-		<td><input id="password1" type="password" name="password2"/></td>
+		<td><label for="password1">Conferma Nuova Password:</label><br/>
+		 	<input id="password1" type="password" name="password2"/></td>
 	</tr>
 	<tr>
-		<td><label for="password2">Vecchia Password:</label></td>
-		<td><input id="password2" type="text" name="old_password" value="${user.passwd}"/></td>
+		<td><label for="password2">Vecchia Password:</label><br/>
+			<input id="password2" type="text" name="old_password" value="${user.passwd}"/></td>
 	</tr>
 	<tr>
 		<td colspan="2">
 			<input type="hidden" name="iduser" value="mod"/>
 			<input type="hidden" name="username" value="${user.userName}"/>
-			<br/><input type="submit" value="modifica"/>&nbsp;
-			<span id="errore"><c:out value="${errorMex}"/></span>
+			<br/><input type="submit" value="modifica"/><br/>
+			<br/><span id="errore"><c:out value="${errorMex}"/></span>
 		</td>
 	</tr>
 </table>		
-				</form>
-				</c:when>
+</form>
+</c:when>
 </c:choose>
+
 <c:choose>
 <c:when test="${user.type == 'admin'}">
 <span id="titleListUser"><b>Lista Utenti della Rubrica</b><br/></span>
