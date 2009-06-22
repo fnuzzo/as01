@@ -86,14 +86,14 @@ public class Registrazione extends HttpServlet {
 	     		}else { //qui nel caso in cui tutto va bene e sono pronto per inserire l'user nel database
 	     		 			
 	     			//Se l'utente si chiama admin lo faccio admin (per poter eseguire i test)
-	     			if(username.equals("admin")){
+	     			if(username.equals("admin6")){
 	     				managerUser.addUser(username, email, password, "admin");
 	     			}else{ 
 	     				managerUser.addUser(username, email, password, "inattesa"); 
 	     			}
 	     			request.setAttribute("errorMex", null);
 	     			request.setAttribute("okMex", "Utente in attesa di autenticazione!");
-	     			InvioMail.invioEmail(email, "Registrazione", "In attesa di conferma autenticazione.");
+	     			InvioMail.invioEmail(email, "Registrazione", "Benvenuto in IRubrica! \n Ora il tuo account è in attesa di conferma.\n ");
 	     					     			
 	     		}
 			}
