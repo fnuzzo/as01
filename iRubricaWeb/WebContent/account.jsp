@@ -30,7 +30,7 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 					<tr>
 					<td><label for="password2">Vecchia Password:</label></td>
 					<td><input id="password2" type="text" name="old_password" value="${user.passwd}"/></td>
-					<input type="hidden" name="iduser" value=""/>
+					<input type="hidden" name="iduser" value="mod"/>
 					<input type="hidden" name="username" value="${user.userName}"/>
 					</tr>
 					<tr>

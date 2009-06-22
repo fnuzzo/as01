@@ -61,8 +61,8 @@ public class Login extends HttpServlet {
 		
 		request.getSession().setAttribute("link_clicked", "no");
 		
-	    String username = request.getParameter("username_login");
-	    String passwd = request.getParameter("pass_login");
+	    String username = request.getParameter("username_login").trim();
+	    String passwd = request.getParameter("pass_login").trim();
     
 	    request.getSession().setAttribute("logged_user", "no");
 	    if (username==null ||  passwd==null ){
