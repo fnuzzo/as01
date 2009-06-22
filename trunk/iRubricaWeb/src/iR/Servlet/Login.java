@@ -63,6 +63,8 @@ public class Login extends HttpServlet {
 		
 	    String username = request.getParameter("username_login").trim();
 	    String passwd = request.getParameter("pass_login").trim();
+	    
+	    passwd = managerUser.codifica(passwd);
     
 	    request.getSession().setAttribute("logged_user", "no");
 	    if (username==null ||  passwd==null ){
