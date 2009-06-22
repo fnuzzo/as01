@@ -74,16 +74,16 @@ div#left {
 	top: 128px;
 }
 div#lista { width: 220px; height: 350px; overflow:auto; }
-span#titleListUser { position: absolute; top: 190px; left: 220px; }
+span#titleListUser { position: absolute; top: 120px; left: 235px; }
 div#listUser { 
-	width: 470px;
-	height: 215px;
+	width: 465px;
+	height: 300px;
 	overflow:auto; 
 	position: absolute;
-	top: 210px;
-	left: 210px;
+	top: 135px;
+	left: 230px;
 	
-	}
+}
 div#listUser table{ width: 450px; border:1px; padding:2px; }
 div#listUser tr { background-color: #c9d7e0;}
 div#right { 
