@@ -7,7 +7,6 @@
 Dati utente <b><c:out value="${user.userName}"/></b><br/>
 <br/>
 Indirizzo e-mail: <b><c:out value="${user.mail}"/></b><br/>
-Password: <b><c:out value="${user.passwd}"/></b><br/>
 Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 <a href="Registrazione?iduser=modifica">Modifica i tuoi dati</a><br/>
 <c:out value="${iduser}"/>
@@ -29,7 +28,7 @@ Tipologia utente: <c:out value="${user.type}"/><br/><br/>
 	</tr>
 	<tr>
 		<td><label for="password2">Vecchia Password:</label><br/>
-			<input id="password2" type="text" name="old_password" value="${user.passwd}"/></td>
+			<input id="password2" type="text" name="old_password" value=""/></td>
 	</tr>
 	<tr>
 		<td colspan="2">
