@@ -45,7 +45,7 @@ public class Admin extends HttpServlet {
 		{
 			managerUser.changeStatus(username, "normale");
 			request.setAttribute("ok_modifica","attiva");
-			InvioMail.invioEmail(email, "Autenticazione", "Wellcome to iRubrica.");
+			InvioMail.invioEmail(email, "Autenticazione", "Welcome to iRubrica. \n Ora potrai usufruire a pieno dei nostri fantastici servizi.");
 		}
 		if(act.equals("elimina"))
 		{

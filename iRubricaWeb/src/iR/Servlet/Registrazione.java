@@ -53,6 +53,7 @@ public class Registrazione extends HttpServlet {
 
 		email = request.getParameter("mail");
 		String old_password= request.getParameter("old_password");
+		old_password = managerUser.codifica(old_password);
 		password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 		
@@ -79,6 +80,7 @@ public class Registrazione extends HttpServlet {
 	     			request.setAttribute("username",username);
 	     			request.setAttribute("email",email);
 	     			request.setAttribute("errorMex","Le due password non coincidono!");	
+	     				
 	     				     			
 	     		}else if(managerUser.findByUsername(username) != null && iduser.equals("new")){
 	     			request.setAttribute("errorMex","UserName Gia' in uso!");
@@ -93,7 +95,7 @@ public class Registrazione extends HttpServlet {
 	     			}
 	     			request.setAttribute("errorMex", null);
 	     			request.setAttribute("okMex", "Utente in attesa di autenticazione!");
-	     			InvioMail.invioEmail(email, "Registrazione", "Benvenuto in IRubrica! \n Ora il tuo account � in attesa di conferma.\n ");
+	     			InvioMail.invioEmail(email, "Registrazione", "Benvenuto in IRubrica! \n Ora il tuo account e' in attesa di conferma.\n ");
 	     					     			
 	     		}
 			}
@@ -103,13 +105,16 @@ public class Registrazione extends HttpServlet {
 			Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
 			Matcher m = p.matcher(email);
 			matchFound = m.matches();
+			User us = managerUser.findByUsername(username);
+			
+			String real_old_password = us.getPasswd();
 			
 			if (email.equals("")){
-				request.setAttribute("errorMex","Il campo mail è obbligatorio!");
+				request.setAttribute("errorMex","Il campo mail e' obbligatorio!");
 				request.setAttribute("iduser", "modifica");
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}else if (!matchFound ){
-				request.setAttribute("errorMex","La mail inserita non è valida!");
+				request.setAttribute("errorMex","La mail inserita non e' valida!");
 				request.setAttribute("iduser", "modifica");
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}else if (!password.equals(confirmPassword)){
@@ -117,12 +122,21 @@ public class Registrazione extends HttpServlet {
      			request.setAttribute("errorMex","Le due password non coincidono!");
      			request.setAttribute("iduser", "modifica");
      			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
+			}else if (!old_password.equals(real_old_password)){
+				request.setAttribute("email",email);
+     			request.setAttribute("errorMex","La vecchia password non coincide!");
+     			request.setAttribute("iduser", "modifica");
+     			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}else {
-     			
-				if(password.equals("")){ password = old_password; }
-				managerUser.updateUser(username, email, password);
+     		
  				
-				User us = managerUser.findByUsername(username);
+
+				
+				if(password.equals("")){ password = old_password; }
+				password = managerUser.codifica(password);
+				managerUser.updateUser(username, email, password);
+				
+				
 				request.setAttribute("modifica_ok", "ok");
 				request.setAttribute("iduser", null);
 				request.getSession().setAttribute("user", us);
@@ -135,8 +149,9 @@ public class Registrazione extends HttpServlet {
      			User us = managerUser.findByUsername(username);
      			email = us.getMail();
      			password = us.getPasswd();
-     			InvioMail.invioEmail(email, "Recupera password", username+" la tua password è "+password);
-     			request.setAttribute("okMex", "La password ti è stata inviata via mail!");
+     			password = managerUser.codifica(password);
+     			InvioMail.invioEmail(email, "Recupera password", username+" la tua password e' "+password);
+     			request.setAttribute("okMex", "La password ti e' stata inviata via mail!");
      			
      		}else{
      			request.setAttribute("errorMex", "inserisci l'username");
