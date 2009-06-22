@@ -10,11 +10,15 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 /**
  * Session Bean implementation class UserManager
  */
 
 @Stateless
+@Clustered
+
 public class UserManager implements UserManagerLocal {
 
 	@PersistenceContext (unitName = "iRubricaEJB")
