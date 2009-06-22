@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.jboss.ejb3.annotation.Clustered;
+
 
 /**
  * Session Bean implementation class ContactManager
@@ -15,10 +17,11 @@ import javax.persistence.Query;
 
 @SuppressWarnings("unchecked")
 @Stateless
+@Clustered
+
 public class ContactManager implements ContactManagerLocal {
 	
-	
-	
+		
 	@PersistenceContext (unitName = "iRubricaEJB")
  	private EntityManager em;
 	
