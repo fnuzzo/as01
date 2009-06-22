@@ -155,19 +155,17 @@ public class Contacts extends HttpServlet {
 
 	
 	//#### Funzioni
-	//converte il numeri di telefono da string ad integer, e restituisce false se sono presenti delle lettere
+	//controlla la lunghezza del numero di telefono e che siano solo interi
 	private boolean controlla_numero (String numero){
-		@SuppressWarnings("unused")
-		int numero_int = 0;
-		if (!numero.equals("")){
-		    try {
-		    	numero_int = Integer.parseInt(numero);
-		    } catch (NumberFormatException e) {
-		    	e.printStackTrace();
+		
+		if(!numero.equals("")){
+		    if(numero.matches("[0-9]+") && numero.length() >= 6)
+		    	return true;
+		    else
 		    	return false;
-		    }
 		}
-	    return true;
+		return true;
+		
 	}
 	
 	private void aggiorna_lista (HttpServletRequest request){
