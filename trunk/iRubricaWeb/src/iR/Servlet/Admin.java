@@ -2,6 +2,7 @@ package iR.Servlet;
 
 import iR.entity.User;
 import iR.entityManager.UserManagerLocal;
+import iR.util.InvioMail;
 
 import java.io.IOException;
 import java.util.List;
@@ -37,20 +38,26 @@ public class Admin extends HttpServlet {
 		String username = request.getParameter("username");
 		String status = request.getParameter("status");
 		
+		User us = managerUser.findByUsername(username);
+		String email = us.getMail();
+		
 		if(act.equals("attiva"))
 		{
 			managerUser.changeStatus(username, "normale");
 			request.setAttribute("ok_modifica","attiva");
+			InvioMail.invioEmail(email, "Autenticazione", "Wellcome to iRubrica.");
 		}
 		if(act.equals("elimina"))
 		{
 			managerUser.removeUser(username);
 			request.setAttribute("ok_modifica","elimina");
+			InvioMail.invioEmail(email, "Eliminazione", username+"Sei fuori dal gruppo.");
 		}
 		if(act.equals("modifica"))
 		{
 			managerUser.changeStatus(username, status);
 			request.setAttribute("ok_modifica","modifica");
+			InvioMail.invioEmail(email, "Modifica Status", "Ora sei un utente "+status);
 		}
 		
 		List<User> lista_utenti = managerUser.allUser();

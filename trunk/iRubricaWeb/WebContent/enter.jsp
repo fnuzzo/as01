@@ -41,7 +41,7 @@
 				<c:choose>
 				<c:when test="${op=='0'}">	
 				<img src="template/recupera.jpg"/>
-				<form id="menu_recupera" name="menu_recupera" action="" method="post">
+				<form id="menu_recupera" name="menu_recupera" action="Registrazione" method="post">
 				<table>
 					<tr>
 						<td><label for="username">Username:</label></td>
@@ -49,6 +49,7 @@
 					</tr>	
 					<tr>
 						<td colspan="2"><br/>
+						<input type="hidden" name="iduser" value="recupera"/>
 						<input type="submit" name="recupera" value="Recupera password"/>
 						</td>
 					</tr>

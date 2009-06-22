@@ -44,28 +44,26 @@ public class Search extends HttpServlet {
 		 String ricerca = request.getParameter("ricerca").trim();
 		 
 		 if (ricerca_contatto.length() >= 3){
-			 
-		
-		 List<Contact> risultati_ricerca = null;
+			
+			 List<Contact> risultati_ricerca = null;
 		 
-		 if(ricerca.equals("perNome")){
-			 risultati_ricerca =  managerContatto.searchForName(ricerca_contatto);
+			 if(ricerca.equals("perNome")){
+				 risultati_ricerca =  managerContatto.searchForName(ricerca_contatto);
 				 
-		 }else if(ricerca.equals("perTelefono")){
-			 risultati_ricerca =  managerContatto.searchForPhone(ricerca_contatto);
+			 }else if(ricerca.equals("perTelefono")){
+				 risultati_ricerca =  managerContatto.searchForPhone(ricerca_contatto);
 
-		 }else if(ricerca.equals("perEmail")){
-			 risultati_ricerca =  managerContatto.searchForEmail(ricerca_contatto);
-		 }
+			 }else if(ricerca.equals("perEmail")){
+				 risultati_ricerca =  managerContatto.searchForEmail(ricerca_contatto);
+			 }
 		 
-		 if (risultati_ricerca.isEmpty()){
-			 request.getSession().setAttribute("lista", "nessun contatto");
-		 }else{
-			 request.getSession().setAttribute("lista", risultati_ricerca);
-		 }	
-		 request.getSession().setAttribute("link_clicked", "search_result");
-		 
-		 
+			 if (risultati_ricerca.isEmpty()){
+				 request.getSession().setAttribute("lista", "nessun contatto");
+			 }else{
+				 request.getSession().setAttribute("lista", risultati_ricerca);
+			 }	
+			 request.getSession().setAttribute("link_clicked", "search_result");
+		 		 
 		 }else {
 			 request.getSession().setAttribute("link_clicked", "Errore ricerca");
 		 }
