@@ -52,8 +52,6 @@ public class Registrazione extends HttpServlet {
 		String username= request.getParameter("username");
 
 		email = request.getParameter("mail");
-		String old_password= request.getParameter("old_password");
-		old_password = managerUser.codifica(old_password);
 		password = request.getParameter("password1");
 		String confirmPassword = request.getParameter("password2");
 		
@@ -106,6 +104,8 @@ public class Registrazione extends HttpServlet {
 			Matcher m = p.matcher(email);
 			matchFound = m.matches();
 			User us = managerUser.findByUsername(username);
+			String old_password= request.getParameter("old_password");
+			old_password = managerUser.codifica(old_password);
 			
 			String real_old_password = us.getPasswd();
 			
