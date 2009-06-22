@@ -129,17 +129,15 @@ public class Registrazione extends HttpServlet {
      			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}else {
      		
- 				
-
-				
+ 							
 				if(password.equals("")){ password = old_password; }
 				password = managerUser.codifica(password);
 				managerUser.updateUser(username, email, password);
-				
-				
+								
 				request.setAttribute("modifica_ok", "ok");
 				request.setAttribute("iduser", null);
 				request.getSession().setAttribute("user", us);
+								
 				getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 			}
    			
@@ -152,7 +150,7 @@ public class Registrazione extends HttpServlet {
      			password = managerUser.codifica(password);
      			InvioMail.invioEmail(email, "Recupera password", username+" la tua password e' "+password);
      			request.setAttribute("okMex", "La password ti e' stata inviata via mail!");
-     			
+     		
      		}else{
      			request.setAttribute("errorMex", "inserisci l'username");
      		}
