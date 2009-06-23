@@ -19,7 +19,9 @@ public class InvioMail {
 	public static void invioEmail(String dest, String soggetto, String contenuto ) {
 		
 		//String smtp = "smtp.fastwebnet.it";
-		//String smtp ="posta.studio.unibo.it";
+
+		//da shell ssh -L 25:smtp.cs.unibo.it:25 accalai@mimi.cs.unibo.it
+		//String smtp="localhost";
 		String smtp ="smtp.cs.unibo.it";
 		String mit ="fnuzzo@cs.unibo.it";
 		
@@ -41,6 +43,8 @@ public class InvioMail {
 
 			Transport.send(message);
 	    } catch(MessagingException e) {
+	    	System.out.println (e);
 	    }
+	    
 	  }
 }
