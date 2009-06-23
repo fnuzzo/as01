@@ -175,23 +175,27 @@ public class Registrazione extends HttpServlet {
 			getServletContext().getRequestDispatcher("/contact.jsp").forward(request, response);
 				
 		}else if  (iduser.equals("recupera")){
-     		if (!username.equals("")){
-     			User us = managerUser.findByUsername(username);
-     			email = us.getMail();
-     			password = us.getPasswd();
      		
-     			String decrypted_password =null; 
-     			try {
-		        
-     		        DesEncrypter encrypter = new DesEncrypter();
-     		        decrypted_password = encrypter.decrypt(password);
-
-     		    } catch (Exception e) {
-     		    }
+			if (!username.equals("")){
+				
+				User us = managerUser.findByUsername(username);
+				
+				if (us == null){
+	     			request.setAttribute("errorMex", "L'username non è presente nel database");
+	     		}else{
+	     			email = us.getMail(); 
+	     			password = us.getPasswd();
+     		
+	     			String decrypted_password =null; 
+	     			try {
+		        		DesEncrypter encrypter = new DesEncrypter();
+		        		decrypted_password = encrypter.decrypt(password);
+		        	} catch (Exception e) {
+		        	}
      			
-     		//	password = managerUser.codifica(password);
-     			InvioMail.invioEmail(email, "Recupera password", username+" la tua password e' "+decrypted_password);
-     			request.setAttribute("okMex", "La password ti e' stata inviata via mail!");
+		        	InvioMail.invioEmail(email, "Recupera password", username+" la tua password e' "+decrypted_password);
+		        	request.setAttribute("okMex", "La password ti e' stata inviata via mail!");
+	     		}
      		
      		}else{
      			request.setAttribute("errorMex", "inserisci l'username");
