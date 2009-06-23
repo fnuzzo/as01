@@ -41,20 +41,21 @@ public class Admin extends HttpServlet {
 		User us = managerUser.findByUsername(username);
 		String email = us.getMail();
 		
-		if(act.equals("attiva"))
-		{
+		if(act.equals("attiva")){
+			
 			managerUser.changeStatus(username, "normale");
 			request.setAttribute("ok_modifica","attiva");
-			InvioMail.invioEmail(email, "Autenticazione", "Welcome to iRubrica. \n Ora potrai usufruire a pieno dei nostri fantastici servizi.");
-		}
-		if(act.equals("elimina"))
-		{
+			InvioMail.invioEmail(email, "Autenticazione", "Welcome to iRubrica. " +
+					"\n Ora potrai usufruire a pieno dei nostri fantastici servizi.");
+			
+		}else if(act.equals("elimina")) {
+			
 			managerUser.removeUser(username);
 			request.setAttribute("ok_modifica","elimina");
 			InvioMail.invioEmail(email, "Eliminazione", username+" sei fuori dal gruppo.");
-		}
-		if(act.equals("modifica"))
-		{
+			
+		}else if(act.equals("modifica")){
+			
 			managerUser.changeStatus(username, status);
 			request.setAttribute("ok_modifica","modifica");
 			InvioMail.invioEmail(email, "Modifica Status", "Ora sei un utente "+status);

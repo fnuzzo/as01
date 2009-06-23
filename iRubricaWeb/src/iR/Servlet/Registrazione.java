@@ -101,6 +101,8 @@ public class Registrazione extends HttpServlet {
 	     				managerUser.addUser(username, email, encrypted_password, "inattesa"); 
 	     			}
 	     			request.setAttribute("errorMex", null);
+	     			request.setAttribute("username",null);
+	     			request.setAttribute("email",null);
 	     			request.setAttribute("okMex", "Utente in attesa di autenticazione!");
 	     			InvioMail.invioEmail(email, "Registrazione", "Salve "+username+"\nOra il tuo account e' in attesa di conferma.\n ");
 	     					     			

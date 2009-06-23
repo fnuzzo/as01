@@ -18,7 +18,9 @@ public class InvioMail {
 
 	public static void invioEmail(String dest, String soggetto, String contenuto ) {
 		
-		String smtp = "smtp.fastwebnet.it";
+		//String smtp = "smtp.fastwebnet.it";
+		//String smtp ="posta.studio.unibo.it";
+		String smtp ="smtp.cs.unibo.it";
 		String mit ="fnuzzo@cs.unibo.it";
 		
 		try {
