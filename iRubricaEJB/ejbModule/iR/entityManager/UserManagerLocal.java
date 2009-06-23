@@ -15,8 +15,6 @@ public interface UserManagerLocal {
 	
 	void updateUser(String username, String mail,String passwd);
 	
-	String encode(String pass);
-	
 	boolean exist(String username);
 	
 	void changeStatus(String username,String status);
