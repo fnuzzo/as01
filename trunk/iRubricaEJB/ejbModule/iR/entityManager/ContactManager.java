@@ -2,11 +2,11 @@ package iR.entityManager;
 
 import iR.entity.Contact;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -21,7 +21,7 @@ import org.jboss.ejb3.annotation.Clustered;
 @SuppressWarnings("unchecked")
 @Stateless
 @Clustered
-
+@WebService
 public class ContactManager implements ContactManagerLocal {
 	
 		
@@ -31,7 +31,7 @@ public class ContactManager implements ContactManagerLocal {
     public ContactManager() {}
 
   
-
+    @WebMethod
 	public void addContact(String name, String surname, String tel_home, String tel_office, String mobile_tel, 
 							String address_home, String address_office,String fax, String mail, Date insertDate, 
 							String note, int idCreatore, String other, String web, String city, String state) {
@@ -59,12 +59,13 @@ public class ContactManager implements ContactManagerLocal {
 
 		}
 
-	
+    @WebMethod
 	public Contact findById(int value){		
 			Contact contact = em.find(Contact.class, value);
 			return contact;
 			}
 	
+    @WebMethod
 	public List<Contact> findByName(String name) {
 		Query qe = em.createNamedQuery("Contact.findByName");
 		qe.setParameter("name", name );
@@ -73,7 +74,7 @@ public class ContactManager implements ContactManagerLocal {
 		return l;
 	}
 	
-
+    @WebMethod
 	public List<Contact> findBySurname(String surname) {
 		Query qe = em.createNamedQuery("Contact.findBySurname");
 		qe.setParameter("surname",surname );
@@ -82,14 +83,14 @@ public class ContactManager implements ContactManagerLocal {
 		return l;
 	}
 	
-
+    @WebMethod
 	public List<Contact> ListAll() {
 		Query all =em.createQuery("from Contact order by surname");
 		List<Contact> l = all.getResultList();
 		return l;
 	}
 
-
+    @WebMethod
 	public List<Contact> findByEmail(String email) {
 		Query qe = em.createNamedQuery("Contact.findByEmail");
 		qe.setParameter("email",email );
@@ -99,7 +100,7 @@ public class ContactManager implements ContactManagerLocal {
 	}
 
 
-
+    @WebMethod
 	public boolean removeContact(int id) {
 		// TODO Auto-generated method stub
 		Contact contact = findById (id);
@@ -111,7 +112,7 @@ public class ContactManager implements ContactManagerLocal {
 	}
 
 
-	
+    @WebMethod
 	public List<Contact> findByCombo(String name, String surname,
 			String email, String tel_home) {
 		// TODO Auto-generated method stub
@@ -124,7 +125,7 @@ public class ContactManager implements ContactManagerLocal {
 		return l;
 	}
 
-
+    @WebMethod
 	public void updateContact(int idContact, String name, String surname,
 			String tel_home, String tel_office, String mobile_tel,
 			String address_home, String address_office, String fax,
@@ -173,7 +174,7 @@ public class ContactManager implements ContactManagerLocal {
 	}
 
 
-
+    @WebMethod
 	//ricerca per nome o per cognome
 	public List<Contact> searchForName(String name) {
 		// TODO Auto-generated method stub
@@ -185,7 +186,7 @@ public class ContactManager implements ContactManagerLocal {
 		return l;	}
 
 
-
+    @WebMethod
 	public List<Contact> searchForEmail(String email) {
 		// TODO Auto-generated method stub
 		Query qe = em.createNamedQuery("Contact.searchForEmail");
@@ -195,7 +196,7 @@ public class ContactManager implements ContactManagerLocal {
 		return l;
 	}
 
-
+    @WebMethod
 	//ricerca per phone_home, phone_office, mobile_phone o fax
 	public List<Contact> searchForPhone(String phone) {
 		// TODO Auto-generated method stub

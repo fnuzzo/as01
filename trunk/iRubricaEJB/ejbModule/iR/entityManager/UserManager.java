@@ -1,12 +1,12 @@
 package iR.entityManager;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import iR.entity.*;
 
 import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -20,12 +20,11 @@ import org.jboss.ejb3.annotation.Clustered;
 
 @Stateless
 @Clustered
-
+@WebService
 public class UserManager implements UserManagerLocal {
 
 	@PersistenceContext (unitName = "iRubricaEJB")
  	private EntityManager em;
-	private	MessageDigest md;
 	
 	
     public UserManager() {}
@@ -33,6 +32,7 @@ public class UserManager implements UserManagerLocal {
     List <User> l;
     
 
+    @WebMethod
 	public void addUser(String name, String mail, String passwd, String type) {
 		User us = new User();
 		
@@ -43,6 +43,7 @@ public class UserManager implements UserManagerLocal {
 		em.persist(us);
 	}
 
+    @WebMethod
 	public void changeStatus(String username, String type) {
 		// TODO Auto-generated method stub
 		User us = findByUsername(username);
@@ -56,11 +57,7 @@ public class UserManager implements UserManagerLocal {
 		
 	}
 
-	public String encode(String pass) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	@WebMethod
 	public boolean exist(String username) {
 		if(findByUsername(username)!=null)
 			return true;
@@ -68,11 +65,13 @@ public class UserManager implements UserManagerLocal {
 			return false;
 	}
 
+	@WebMethod
 	public void removeUser(String  username) {
 		User us = findByUsername(username);
 		em.remove(us);
 	}
 	
+	@WebMethod
 	public void updateUser(String username, String mail, String passwd) {
 		// TODO Auto-generated method stub
 		User us = findByUsername(username);
@@ -87,6 +86,7 @@ public class UserManager implements UserManagerLocal {
 	
 	}
 
+	@WebMethod
 	@SuppressWarnings("unchecked")
 	public List <User>  allUser(){
 		Query qe = em.createNamedQuery("User.findAll");
@@ -94,11 +94,7 @@ public class UserManager implements UserManagerLocal {
 		return l;
 		}
 
-	public void removeUser(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	@WebMethod
 	public boolean auth(String username, String password) {
 		// TODO Auto-generated method stub
 		if(exist(username))
@@ -110,6 +106,7 @@ public class UserManager implements UserManagerLocal {
 		else return false;
 	}
 
+	@WebMethod
 	public User findByUsername(String username) {
 		User us;
 		Query qe = em.createNamedQuery("User.findByUsername");
