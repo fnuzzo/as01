@@ -43,7 +43,6 @@ public class InvioMail {
 
 			Transport.send(message);
 	    } catch(MessagingException e) {
-	    	System.out.println (e);
 	    }
 	    
 	  }
