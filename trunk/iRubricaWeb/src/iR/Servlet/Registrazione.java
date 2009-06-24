@@ -83,6 +83,8 @@ public class Registrazione extends HttpServlet {
 	     			request.setAttribute("errorMex","Le due password non coincidono!");	
 	     		     				     			
 	     		}else if(managerUser.findByUsername(username) != null && iduser.equals("new")){
+	     			request.setAttribute("username",null);
+	     			request.setAttribute("email",null);
 	     			request.setAttribute("errorMex","UserName Gia' in uso!");
 	     			
 	     		}else { //qui nel caso in cui tutto va bene e sono pronto per inserire l'user nel database
