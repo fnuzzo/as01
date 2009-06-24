@@ -131,7 +131,7 @@ public class Registrazione extends HttpServlet {
 			}else{
 				managerUser.updateUser(username, email, password);
 				
-				request.setAttribute("modifica_ok", "Email utente modificata con successo.");
+				request.setAttribute("modifica_ok", "Email modificata con successo.");
 				request.setAttribute("iduser", null);
 				us = managerUser.findByUsername(username);
 				request.getSession().setAttribute("user", us);
@@ -149,7 +149,7 @@ public class Registrazione extends HttpServlet {
 			String old_password= request.getParameter("old_password");
  							
 			if(password.equals("") || confirmPassword.equals("") || old_password.equals("") ){ 
-				request.setAttribute("errorMex","Riempire tutti i campi per modificare la password!");
+				request.setAttribute("errorMex","Riempire tutti i campi!");
 			}else {
 				String encrypted_old_password = null;
 				String encrypted_password = null;
@@ -162,13 +162,13 @@ public class Registrazione extends HttpServlet {
 				if (!password.equals(confirmPassword)){
 					request.setAttribute("errorMex","Le due nuove password non coincidono!");
 				}else if (!encrypted_old_password.equals(real_old_password)){
-					request.setAttribute("errorMex","La vecchia password non coincide!");
+					request.setAttribute("errorMex","La vecchia password è errata!");
 	     		
 				}else{
 					
 					managerUser.updateUser(username, email, encrypted_password);
 					
-					request.setAttribute("modifica_ok", "Password utente modificata con successo.");
+					request.setAttribute("modifica_ok", "Password modificata con successo.");
 					request.setAttribute("iduser", null);
 					request.getSession().setAttribute("user", us);
 									
