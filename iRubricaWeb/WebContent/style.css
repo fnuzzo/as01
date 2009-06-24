@@ -74,14 +74,14 @@ div#left {
 	top: 128px;
 }
 div#lista { width: 220px; height: 350px; overflow:auto; }
-span#titleListUser { position: absolute; top: 120px; left: 235px; }
+span#titleListUser { position: absolute; top: 120px; left: 250px; }
 div#listUser { 
-	width: 465px;
+	width: 470px;
 	height: 300px;
 	overflow:auto; 
 	position: absolute;
 	top: 135px;
-	left: 230px;
+	left: 245px;
 	
 }
 div#listUser table{ width: 450px; border:1px; padding:2px; }
